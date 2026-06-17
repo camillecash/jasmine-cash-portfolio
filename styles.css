@@ -363,6 +363,12 @@ h3 {
   font-size: 1.04rem;
 }
 
+.section-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
 .split {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
@@ -1018,6 +1024,43 @@ summary.section-heading::after {
 
 .site-footer a {
   color: #dcefed;
+}
+
+[data-reveal] {
+  --reveal-x: 0;
+  --reveal-y: 16px;
+  opacity: 0;
+  transform: translate3d(var(--reveal-x), var(--reveal-y), 0);
+  transition: opacity 620ms ease, transform 620ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal="down"] {
+  --reveal-y: -14px;
+}
+
+[data-reveal="left"] {
+  --reveal-x: 18px;
+  --reveal-y: 0;
+}
+
+[data-reveal="right"] {
+  --reveal-x: -18px;
+  --reveal-y: 0;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .modal-backdrop {
