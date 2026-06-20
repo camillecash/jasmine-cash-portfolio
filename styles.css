@@ -1023,6 +1023,10 @@ summary.section-heading::after {
   flex-wrap: wrap;
 }
 
+.site-footer .social-row {
+  margin-top: 0;
+}
+
 .site-footer a {
   color: #dcefed;
 }
