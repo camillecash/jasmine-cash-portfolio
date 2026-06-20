@@ -481,6 +481,7 @@ a.pill:focus-visible {
 
 .project-card {
   display: grid;
+  align-content: start;
   gap: 18px;
 }
 
@@ -1028,25 +1029,25 @@ summary.section-heading::after {
 
 [data-reveal] {
   --reveal-x: 0;
-  --reveal-y: 16px;
+  --reveal-y: 10px;
   opacity: 0;
   transform: translate3d(var(--reveal-x), var(--reveal-y), 0);
-  transition: opacity 620ms ease, transform 620ms ease;
+  transition: opacity 280ms ease, transform 280ms ease;
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
 
 [data-reveal="down"] {
-  --reveal-y: -14px;
+  --reveal-y: -8px;
 }
 
 [data-reveal="left"] {
-  --reveal-x: 18px;
+  --reveal-x: 10px;
   --reveal-y: 0;
 }
 
 [data-reveal="right"] {
-  --reveal-x: -18px;
+  --reveal-x: -10px;
   --reveal-y: 0;
 }
 
@@ -1205,7 +1206,8 @@ summary.section-heading::after {
   .quick-note {
     position: static;
     margin-top: 14px;
-    width: 25rem;
+    width: 100%;
+    max-width: 25rem;
   }
 
   .publication-item {

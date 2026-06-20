@@ -41,7 +41,7 @@ function setupReveals() {
       if (!element.hasAttribute("data-reveal")) {
         element.setAttribute("data-reveal", direction);
       }
-      element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 55}ms`);
+      element.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 24}ms`);
     });
   });
 
@@ -59,7 +59,7 @@ function setupReveals() {
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.04, rootMargin: "0px 0px 8% 0px" }
   );
 
   revealElements.forEach((element) => observer.observe(element));
