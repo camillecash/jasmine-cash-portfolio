@@ -2,6 +2,8 @@
 
 Static portfolio website for Jasmine J. Cash, PhD, CSCS, highlighting her research, projects, publications, presentations, teaching, and recognition.
 
+Live site: https://jasminecash.com
+
 ## Pages
 
 - `index.html` - Home and research overview
