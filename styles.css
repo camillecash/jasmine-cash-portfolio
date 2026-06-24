@@ -363,6 +363,14 @@ h3 {
   font-size: 1.04rem;
 }
 
+.about-section .section-intro {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 0;
+  font-size: clamp(1.04rem, 1.1vw + 0.72rem, 1.35rem);
+  line-height: clamp(1.55, 1.45 + 0.25vw, 1.75);
+}
+
 .section-actions {
   display: flex;
   justify-content: center;
