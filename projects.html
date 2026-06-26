@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
   <head>
@@ -59,89 +61,37 @@
       </nav>
 
       <section class="page-main project-sections">
-        <section class="project-theme" id="brain-body">
-          <div class="section-heading">
-            <p class="eyebrow">Brain-body recovery</p>
-            <h2>Brain-Body Interactions in Recovery</h2>
-            <p>Projects in this area examine how brain health, autonomic function, obesity, and mobility interact during stroke recovery.</p>
-          </div>
-          <div class="project-grid">
-            <article class="card project-card">
-              <h3>Obesity, brain health, and stroke recovery</h3>
-              <p>NIH-funded work examining how obesity may limit brain health and influence recovery after stroke</p>
-              <dl>
-                <div><dt>Resources</dt><dd>NIH LRP and D-SPAN award materials, study protocols, clinical and neurophysiological measures</dd></div>
-                <div><dt>Technology used</dt><dd>Clinical assessment, neurophysiological testing, statistical modeling, reproducible analysis workflows</dd></div>
-              </dl>
-            </article>
-            <article class="card project-card">
-              <h3>Dysautonomia and chronic stroke</h3>
-              <p>Research exploring associations between central autonomic network integrity and mobility performance after stroke</p>
-              <dl>
-                <div><dt>Technology used</dt><dd>Neuroimaging-informed measures, mobility testing, statistical analysis, ECG, exploratory multimodal analysis</dd></div>
-              </dl>
-            </article>
-          </div>
-        </section>
+        {% assign themes = site.data.project_themes | sort: "order" %}
+        {% for theme in themes %}
+          <section class="project-theme" id="{{ theme.anchor | escape }}">
+            <div class="section-heading">
+              <p class="eyebrow">{{ theme.eyebrow | escape }}</p>
+              <h2>{{ theme.title | escape }}</h2>
+              <p>{{ theme.description | escape }}</p>
+            </div>
 
-        <section class="project-theme" id="neuromodulation">
-          <div class="section-heading">
-            <p class="eyebrow">Neuromodulation</p>
-            <h2>Neuroplasticity &amp; Neuromodulation</h2>
-            <p>Projects in this area use neuromodulation to understand lower-extremity sensorimotor plasticity and recovery.</p>
-          </div>
-          <div class="project-grid">
-            <article class="card project-card">
-              <h3>Sensory motor integration &amp; plasticity</h3>
-              <p>Dissertation work characterizing lower-extremity neurophysiological responses to sensory augmentation in chronic stroke, alongside studies evaluating individualized paired associative stimulation as a tool to assay sensorimotor plasticity in healthy adults and people with chronic stroke</p>
-              <dl>
-                <div><dt>Resources</dt><dd>Dissertation, NIH D-SPAN F99</dd></div>
-                <div><dt>Technology used</dt><dd>Transcranial magnetic stimulation, sensory augmentation, paired associative stimulation</dd></div>
-              </dl>
-            </article>
-            <article class="card project-card">
-              <h3>Lower-extremity neurophysiology</h3>
-              <p>Work focused on lower-extremity motor threshold assessment, corticomotor excitability, and neuronavigated TMS methods that support individualized neuromodulation research after stroke</p>
-              <dl>
-                <div><dt>Resources</dt><dd>NIH TL1/T32</dd></div>
-                <div><dt>Technology used</dt><dd>TMS, lower-extremity motor threshold assessment, neuronavigation</dd></div>
-              </dl>
-            </article>
-          </div>
-        </section>
+            <div class="project-grid">
+              {% assign projects = theme.projects | sort: "order" %}
+              {% for project in projects %}
+                <article class="card project-card">
+                  <h3>{{ project.title | escape }}</h3>
+                  <p>{{ project.summary | escape }}</p>
 
-        <section class="project-theme" id="outcomes">
-          <div class="section-heading">
-            <p class="eyebrow">Outcomes research</p>
-            <h2>Behavioral Outcomes Research</h2>
-            <p>Projects in this area focus on measurement, function, and clinically meaningful outcomes in rehabilitation.</p>
-          </div>
-          <div class="project-grid">
-            <article class="card project-card">
-              <h3>Functional Balance Ability Measure</h3>
-              <p>Development and validation of a balance measure designed to capture ability across the spectrum of functional mobility after stroke and other neurologic diagnoses</p>
-              <dl>
-                <div><dt>Resources</dt><dd>MUSC Emerging Scholars Travel Award</dd></div>
-                <div><dt>Technology used</dt><dd>Psychometric assessment, measurement validation, rehabilitation outcomes analysis</dd></div>
-              </dl>
-            </article>
-            <article class="card project-card">
-              <h3>Gait analysis in severe post-stroke hemiparesis</h3>
-              <p>Work comparing observational gait analysis with quantitative methods for individuals with severe post-stroke gait impairment</p>
-              <dl>
-                <div><dt>Technology used</dt><dd>Gait event detection, observational analysis, quantitative movement assessment</dd></div>
-              </dl>
-            </article>
-            <article class="card project-card">
-              <h3>Lower-extremity biomechanics and clinical outcomes</h3>
-              <p>Research examining ankle angular velocity, acceleration, and other movement variables as reliable measures related to post-injury clinical outcomes</p>
-              <dl>
-                <div><dt>Resources</dt><dd>Domer Research Award, Office of Student Research, Appalachian State University</dd></div>
-                <div><dt>Technology used</dt><dd>Biomechanics, kinematic analysis, kinetic analysis</dd></div>
-              </dl>
-            </article>
-          </div>
-        </section>
+                  {% if project.details %}
+                    <dl>
+                      {% for detail in project.details %}
+                        <div>
+                          <dt>{{ detail.label | escape }}</dt>
+                          <dd>{{ detail.value | escape }}</dd>
+                        </div>
+                      {% endfor %}
+                    </dl>
+                  {% endif %}
+                </article>
+              {% endfor %}
+            </div>
+          </section>
+        {% endfor %}
       </section>
     </main>
 

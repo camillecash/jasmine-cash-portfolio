@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
   <head>
@@ -48,77 +50,61 @@
     <main>
       <section class="hero">
         <div>
-          <p class="eyebrow">Stroke recovery | neuromodulation | rehabilitation outcomes</p>
-          <h1>Jasmine J. Cash, PhD, CSCS</h1>
-          <p class="hero-copy">
-            Postdoctoral scholar studying neurophysiology, neuromodulation, and functional outcomes to improve stroke recovery and physical function
-          </p>
+          <p class="eyebrow">{{ site.data.home.hero.eyebrow | escape }}</p>
+          <h1>{{ site.data.home.hero.title | escape }}</h1>
+          <p class="hero-copy">{{ site.data.home.hero.description | escape }}</p>
           <div class="hero-actions">
-            <a class="button" href="projects.html">Research projects</a>
-            <a class="button secondary" href="publications.html">Selected publications</a>
+            {% assign hero_actions = site.data.home.hero.actions | sort: "order" %}
+            {% for action in hero_actions %}
+              <a class="button{% if action.style == 'secondary' %} secondary{% endif %}" href="{{ action.url | escape }}">{{ action.label | escape }}</a>
+            {% endfor %}
           </div>
           <div class="social-row" aria-label="Professional links">
-            <a href="https://www.linkedin.com/in/jasmine-cash/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/jasminecash" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="assets/cv.pdf" download>Download CV</a>
+            {% assign professional_links = site.data.home.hero.professionalLinks | sort: "order" %}
+            {% for link in professional_links %}
+              <a href="{{ link.url | escape }}"{% unless link.download %} target="_blank" rel="noreferrer"{% endunless %}{% if link.download %} download{% endif %}>{{ link.label | escape }}</a>
+            {% endfor %}
           </div>
         </div>
         <div class="portrait-panel">
-          <img class="portrait" src="assets/headshot.jpeg" alt="Portrait of Jasmine J. Cash">
+          <img class="portrait" src="{{ site.data.home.hero.portrait.image | escape }}" alt="{{ site.data.home.hero.portrait.alt | escape }}">
           <div class="quick-note">
-            <strong>Postdoctoral scholar</strong>
-            <span>Medical University of South Carolina</span>
+            <strong>{{ site.data.home.hero.portrait.noteTitle | escape }}</strong>
+            <span>{{ site.data.home.hero.portrait.noteText | escape }}</span>
           </div>
         </div>
       </section>
 
       <section class="band">
         <div class="section about-section">
-          <p class="eyebrow">About</p>
-          <p class="section-intro">
-            Dr. Cash is a postdoctoral scholar at the Medical University of South Carolina whose work sits at the intersection of rehabilitation science, neuroscience, and clinical outcomes research. Her research uses neurophysiological assessment, neuromodulation, psychometric methods, and exercise science to better understand stroke recovery and physical function. Across projects, she is interested in how brain-body systems shape recovery and how rehabilitation measures can better capture meaningful change.
-          </p>
+          <p class="eyebrow">{{ site.data.home.about.eyebrow | escape }}</p>
+          <p class="section-intro">{{ site.data.home.about.description | escape }}</p>
         </div>
       </section>
 
       <section class="section interest-section">
-        <p class="eyebrow">Research Interests</p>
+        <p class="eyebrow">{{ site.data.home.interests.eyebrow | escape }}</p>
         <div class="interest-strip" aria-label="Research interests">
-          <span>Stroke recovery</span>
-          <span>Neuromodulation</span>
-          <span>Neurophysiology</span>
-          <span>Psychometric assessment</span>
-          <span>Rehabilitation outcomes</span>
-          <span>Brain-body interactions</span>
-          <span>Exercise interventions</span>
+          {% for interest in site.data.home.interests.items %}
+            <span>{{ interest | escape }}</span>
+          {% endfor %}
         </div>
       </section>
 
       <section class="section">
-        <p class="eyebrow">Research Areas</p>
-        <h2>Core research themes</h2>
+        <p class="eyebrow">{{ site.data.home.researchThemes.eyebrow | escape }}</p>
+        <h2>{{ site.data.home.researchThemes.title | escape }}</h2>
         <div class="research-list" aria-label="Research areas">
-          <article class="card tint">
-            <h3>Brain-Body Interactions in Recovery</h3>
-            <p>Studying how neural, autonomic, metabolic, and physical systems shape recovery after stroke</p>
-            <div class="meta-list">
-              <a class="pill" href="projects.html#brain-body">Related projects</a>
-            </div>
-          </article>
-          <article class="card tint">
-            <h3>Neuroplasticity &amp; Neuromodulation</h3>
-            <p>Using stimulation-based approaches to probe sensorimotor plasticity and support recovery</p>
-            <div class="meta-list">
-              <a class="pill" href="projects.html#neuromodulation">Related projects</a>
-            </div>
-          </article>
-          <article class="card tint">
-            <h3>Behavioral Outcomes Research</h3>
-            <p>Developing and validating measures that capture balance, mobility, fatigue, and function</p>
-            <div class="meta-list">
-              <a class="pill" href="projects.html#outcomes">Related projects</a>
-            </div>
-          </article>
+          {% assign research_themes = site.data.home.researchThemes.items | sort: "order" %}
+          {% for theme in research_themes %}
+            <article class="card tint">
+              <h3>{{ theme.title | escape }}</h3>
+              <p>{{ theme.description | escape }}</p>
+              <div class="meta-list">
+                <a class="pill" href="{{ theme.linkUrl | escape }}">{{ theme.linkLabel | escape }}</a>
+              </div>
+            </article>
+          {% endfor %}
         </div>
       </section>
     </main>

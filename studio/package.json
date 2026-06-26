@@ -1,0 +1,36 @@
+{
+  "name": "jasmine-cash-sanity-studio",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Sanity Studio for Jasmine Cash portfolio content.",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "import:publications": "node scripts/importPublications.mjs",
+    "sync:publications": "node scripts/syncPublicationsToJekyll.mjs",
+    "import:projects": "node scripts/importProjects.mjs",
+    "sync:projects": "node scripts/syncProjectsToJekyll.mjs",
+    "import:presentations": "node scripts/importPresentations.mjs",
+    "sync:presentations": "node scripts/syncPresentationsToJekyll.mjs",
+    "import:recognition": "node scripts/importRecognition.mjs",
+    "sync:recognition": "node scripts/syncRecognitionToJekyll.mjs",
+    "import:expertise": "node scripts/importExpertise.mjs",
+    "sync:expertise": "node scripts/syncExpertiseToJekyll.mjs",
+    "import:teaching": "node scripts/importTeaching.mjs",
+    "sync:teaching": "node scripts/syncTeachingToJekyll.mjs",
+    "import:home": "node scripts/importHome.mjs",
+    "sync:home": "node scripts/syncHomeToJekyll.mjs",
+    "sync:all": "pnpm run sync:home && pnpm run sync:projects && pnpm run sync:expertise && pnpm run sync:publications && pnpm run sync:presentations && pnpm run sync:teaching && pnpm run sync:recognition"
+  },
+  "dependencies": {
+    "@sanity/client": "latest",
+    "@sanity/vision": "latest",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "sanity": "latest",
+    "styled-components": "^6.4.3",
+    "typescript": "latest"
+  }
+}

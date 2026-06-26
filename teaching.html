@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,68 +35,36 @@
 
     <main>
       <section class="page-hero teaching-hero">
-        <p class="eyebrow">Teaching Experience</p>
-        <h1>Teaching and mentorship</h1>
-        <p class="hero-copy">
-          Dr. Cash brings her background in clinical research, human movement, and strength and conditioning into the classroom, helping students connect foundational science with health care practice.
-          Dr. Cash also mentors students and emerging scholars as they build research skills, connect coursework to clinical questions, and develop confidence in rehabilitation science.
-        </p>
+        <p class="eyebrow">{{ site.data.teaching.hero.eyebrow | escape }}</p>
+        <h1>{{ site.data.teaching.hero.title | escape }}</h1>
+        {% assign hero_copy = site.data.teaching.hero.paragraphs | join: " " %}
+        <p class="hero-copy">{{ hero_copy | escape }}</p>
       </section>
 
       <section class="page-main teaching-layout">
         <div class="teaching-summary">
-          <p class="eyebrow">Teaching Portfolio</p>
-          <h2>Classroom and guest instruction</h2>
-          <p>
-            Dr. Cash's teaching experience spans anatomy and physiology, evidence-based practice, applied physiology, and neuromodulation. She teaches across undergraduate and graduate health science settings.
-          </p>
+          <p class="eyebrow">{{ site.data.teaching.summary.eyebrow | escape }}</p>
+          <h2>{{ site.data.teaching.summary.title | escape }}</h2>
+          <p>{{ site.data.teaching.summary.description | escape }}</p>
         </div>
 
         <div class="teaching-details">
-          <article class="teaching-card featured">
-            <div>
-              <span class="teaching-date">June 2023 - Present</span>
-              <h3>Southeastern College</h3>
-              <p class="teaching-role">Adjunct Instructor, Department of General Studies | North Charleston, SC</p>
-            </div>
-            <p>
-              Dr. Cash teaches undergraduate anatomy and physiology coursework with an emphasis on clarity, applied learning, and helping students build a strong foundation for future clinical, allied health, and research-oriented work.
-            </p>
-            <div class="course-list" aria-label="Courses taught">
-              <span>BSC 2085 - Anatomy &amp; Physiology I</span>
-              <span>BSC 2086 - Anatomy &amp; Physiology II</span>
-            </div>
-          </article>
-
-          <article class="teaching-card">
-            <div>
-              <span class="teaching-date">2024</span>
-              <h3>Medical University of South Carolina</h3>
-              <p class="teaching-role">Adjunct Instructor, Department of Rehabilitation Sciences | Charleston, SC</p>
-            </div>
-            <p>
-              Dr. Cash taught evidence-based practice content for occupational therapy students, supporting students as they developed skills for evaluating research and applying evidence to rehabilitation practice.
-            </p>
-            <div class="course-list" aria-label="Course taught">
-              <span>OTD 815 - Evidence Based Practice I</span>
-            </div>
-          </article>
-
-          <article class="teaching-card">
-            <div>
-              <span class="teaching-date">2022 - Present</span>
-              <h3>Medical University of South Carolina</h3>
-              <p class="teaching-role">Guest Lecturer, Department of Rehabilitation Sciences | Charleston, SC</p>
-            </div>
-            <p>
-              As a guest lecturer, Dr. Cash introduces students to principles of neuromodulation within applied physiology and nutrition, connecting neurophysiological concepts to rehabilitation science and clinical recovery.
-            </p>
-            <div class="course-list" aria-label="Guest lecture course">
-              <span>PT 712 - Applied Physiology and Nutrition</span>
-              <span>Principles of Neuromodulation</span>
-            </div>
-          </article>
-
+          {% assign teaching_positions = site.data.teaching.positions | sort: "order" %}
+          {% for position in teaching_positions %}
+            <article class="teaching-card{% if position.featured %} featured{% endif %}">
+              <div>
+                <span class="teaching-date">{{ position.date | escape }}</span>
+                <h3>{{ position.institution | escape }}</h3>
+                <p class="teaching-role">{{ position.role | escape }}</p>
+              </div>
+              <p>{{ position.description | escape }}</p>
+              <div class="course-list" aria-label="{{ position.coursesLabel | escape }}">
+                {% for course in position.courses %}
+                  <span>{{ course | escape }}</span>
+                {% endfor %}
+              </div>
+            </article>
+          {% endfor %}
         </div>
       </section>
     </main>

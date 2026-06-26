@@ -1,0 +1,90 @@
+{
+  "about": {
+    "description": "Dr. Cash is a postdoctoral scholar at the Medical University of South Carolina whose work sits at the intersection of rehabilitation science, neuroscience, and clinical outcomes research. Her research uses neurophysiological assessment, neuromodulation, psychometric methods, and exercise science to better understand stroke recovery and physical function. Across projects, she is interested in how brain-body systems shape recovery and how rehabilitation measures can better capture meaningful change.",
+    "eyebrow": "About"
+  },
+  "hero": {
+    "actions": [
+      {
+        "label": "Research projects",
+        "order": 1,
+        "style": "primary",
+        "url": "projects.html"
+      },
+      {
+        "label": "Selected publications",
+        "order": 2,
+        "style": "secondary",
+        "url": "publications.html"
+      }
+    ],
+    "description": "Postdoctoral scholar studying neurophysiology, neuromodulation, and functional outcomes to improve stroke recovery and physical function",
+    "eyebrow": "Stroke recovery | neuromodulation | rehabilitation outcomes",
+    "portrait": {
+      "alt": "Portrait of Jasmine J. Cash",
+      "image": "assets/headshot.jpeg",
+      "noteText": "Medical University of South Carolina",
+      "noteTitle": "Postdoctoral scholar"
+    },
+    "professionalLinks": [
+      {
+        "download": false,
+        "label": "LinkedIn",
+        "order": 1,
+        "url": "https://www.linkedin.com/in/jasmine-cash/"
+      },
+      {
+        "download": false,
+        "label": "GitHub",
+        "order": 2,
+        "url": "https://github.com/jasminecash"
+      },
+      {
+        "download": true,
+        "label": "Download CV",
+        "order": 3,
+        "url": "assets/cv.pdf"
+      }
+    ],
+    "title": "Jasmine J. Cash, PhD, CSCS"
+  },
+  "interests": {
+    "eyebrow": "Research Interests",
+    "items": [
+      "Stroke recovery",
+      "Neuromodulation",
+      "Neurophysiology",
+      "Psychometric assessment",
+      "Rehabilitation outcomes",
+      "Brain-body interactions",
+      "Exercise interventions"
+    ]
+  },
+  "researchThemes": {
+    "eyebrow": "Research Areas",
+    "items": [
+      {
+        "description": "Studying how neural, autonomic, metabolic, and physical systems shape recovery after stroke",
+        "linkLabel": "Related projects",
+        "linkUrl": "projects.html#brain-body",
+        "order": 1,
+        "title": "Brain-Body Interactions in Recovery"
+      },
+      {
+        "description": "Using stimulation-based approaches to probe sensorimotor plasticity and support recovery",
+        "linkLabel": "Related projects",
+        "linkUrl": "projects.html#neuromodulation",
+        "order": 2,
+        "title": "Neuroplasticity & Neuromodulation"
+      },
+      {
+        "description": "Developing and validating measures that capture balance, mobility, fatigue, and function",
+        "linkLabel": "Related projects",
+        "linkUrl": "projects.html#outcomes",
+        "order": 3,
+        "title": "Behavioral Outcomes Research"
+      }
+    ],
+    "title": "Core research themes"
+  }
+}

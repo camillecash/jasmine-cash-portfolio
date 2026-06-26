@@ -1,0 +1,265 @@
+[
+  {
+    "anchor": "grants",
+    "cards": [],
+    "compact": false,
+    "eyebrow": "Grants Awarded",
+    "items": [
+      {
+        "date": "2025-2027",
+        "description": "L30NS145360, \"The Effects of Obesity on Limiting Brain Health and Stroke Recovery\"",
+        "order": 1,
+        "tags": [
+          "PI",
+          "Postdoctoral Scholar"
+        ],
+        "title": "NIH Loan Repayment Program"
+      },
+      {
+        "date": "2025",
+        "description": "\"Validation of the Functional Balance Ability Measure Across Neurological Diagnoses\"",
+        "order": 2,
+        "tags": [
+          "PI",
+          "Postdoctoral Scholar"
+        ],
+        "title": "MUSC Emerging Scholars Travel Award"
+      },
+      {
+        "date": "2024-2028",
+        "description": "K00NS135810, \"The Effects of Obesity on Limiting Brain Health and Stroke Recovery\"",
+        "order": 3,
+        "tags": [
+          "PI",
+          "Postdoctoral Scholar"
+        ],
+        "title": "NIH Blueprint and BRAIN Initiative D-SPAN Award"
+      },
+      {
+        "date": "2023-2024",
+        "description": "F99NS135810, \"Characterizing Lower Extremity Neurophysiologic Responses to Sensory Augmentation in Chronic Stroke\"",
+        "order": 4,
+        "tags": [
+          "PI",
+          "Predoctoral Trainee"
+        ],
+        "title": "NIH Blueprint and BRAIN Initiative D-SPAN Award"
+      },
+      {
+        "date": "2022-2023",
+        "description": "TL1 TR001451 and UL1 TR001450, MUSC and NCATS of the NIH",
+        "order": 5,
+        "tags": [
+          "PI",
+          "Predoctoral Trainee"
+        ],
+        "title": "SCTR TL1 Predoctoral Clinical & Translational Research Award"
+      },
+      {
+        "date": "2020",
+        "description": "Office of Student Research, Appalachian State University, supporting work on ankle immobilization, neural excitability, and joint motion",
+        "order": 6,
+        "tags": [
+          "PI",
+          "Graduate Student Trainee"
+        ],
+        "title": "Domer Research Award"
+      }
+    ],
+    "layout": "list",
+    "open": true,
+    "order": 1,
+    "title": "Research funding"
+  },
+  {
+    "anchor": "honors",
+    "cards": [],
+    "compact": true,
+    "eyebrow": "Honors and Selections",
+    "items": [
+      {
+        "date": "2026",
+        "description": "Selected for a national leadership development program for postdoctoral researchers",
+        "order": 1,
+        "tags": [],
+        "title": "Washington University Compass Postdoc Track Scholar"
+      },
+      {
+        "date": "2025-2026",
+        "description": "Selected as a trainee in an NIH-funded program focused on reproducibility, MATLAB, rigor, and data science in rehabilitation research",
+        "order": 2,
+        "tags": [],
+        "title": "Reproducible Rehabilitation Program Cohort"
+      },
+      {
+        "date": "2023",
+        "description": "Recognized for an outstanding poster presentation at the ACTS Translational Science Conference",
+        "order": 3,
+        "tags": [],
+        "title": "ACTS Translational Research Top Poster Presenter"
+      },
+      {
+        "date": "2021-2023",
+        "description": "Awarded a certificate of competence after completing a faculty-led curriculum in clinical and translational research ethics",
+        "order": 4,
+        "tags": [],
+        "title": "MUSC Fellowship in Clinical and Translational Research Ethics"
+      },
+      {
+        "date": "2020",
+        "description": "Awarded in recognition of exceptional excellence in graduate-level research",
+        "order": 5,
+        "tags": [],
+        "title": "ASU Outstanding Graduate Student in Research"
+      }
+    ],
+    "layout": "list",
+    "open": false,
+    "order": 2,
+    "title": "Awards and programs"
+  },
+  {
+    "anchor": "leadership",
+    "cards": [
+      {
+        "bullets": [
+          {
+            "date": "2025-2026",
+            "order": 1,
+            "text": "Treasurer, MUSC Postdoctoral Association Executive Board"
+          },
+          {
+            "date": "2021-2023",
+            "order": 2,
+            "text": "Health Education Committee Chair, MUSC Black Student Union"
+          },
+          {
+            "date": "2019-2020",
+            "order": 3,
+            "text": "Senator, ASU Graduate Student Government Association, Health and Exercise Science Department"
+          },
+          {
+            "date": "2019-2020",
+            "order": 4,
+            "text": "Board Member, ASU Graduate Student Government Association Philanthropy Committee"
+          }
+        ],
+        "order": 1,
+        "title": "Leadership"
+      },
+      {
+        "bullets": [
+          {
+            "date": "2024",
+            "order": 1,
+            "text": "Poster Presentation Judge, Perry V. Halushka MUSC Research Day"
+          },
+          {
+            "date": "2018-2020",
+            "order": 2,
+            "text": "Student Member, ASU Black Graduate Student Association"
+          },
+          {
+            "date": "2018-2020",
+            "order": 3,
+            "text": "Moderator, ASU Biomechanics Journal Club"
+          }
+        ],
+        "order": 2,
+        "title": "Service"
+      },
+      {
+        "bullets": [
+          {
+            "date": "2024-Present",
+            "order": 1,
+            "text": "Educating students during yearly Cane Bay High School Stroke Recovery Research Day visits"
+          },
+          {
+            "date": "2021-Present",
+            "order": 2,
+            "text": "Educating students during yearly Orange Grove Elementary School Biomechanics Day visits"
+          }
+        ],
+        "order": 3,
+        "title": "Community engagement"
+      }
+    ],
+    "compact": false,
+    "eyebrow": "Leadership and Service",
+    "items": [],
+    "layout": "cards",
+    "open": false,
+    "order": 3,
+    "title": "Academic and community roles"
+  },
+  {
+    "anchor": "professional",
+    "cards": [
+      {
+        "bullets": [
+          {
+            "date": "2026-Present",
+            "order": 1,
+            "text": "National Strength and Conditioning Association"
+          },
+          {
+            "date": "2025-Present",
+            "order": 2,
+            "text": "National Postdoctoral Association"
+          },
+          {
+            "date": "2024-2025",
+            "order": 3,
+            "text": "Society for Neuroscience"
+          },
+          {
+            "date": "2023-2024",
+            "order": 4,
+            "text": "American College of Sports Medicine"
+          }
+        ],
+        "order": 1,
+        "title": "Organizations"
+      },
+      {
+        "bullets": [
+          {
+            "date": "",
+            "order": 1,
+            "text": "Frontiers in Neuroscience"
+          },
+          {
+            "date": "",
+            "order": 2,
+            "text": "Frontiers in Aging Neuroscience"
+          },
+          {
+            "date": "",
+            "order": 3,
+            "text": "PLOS One"
+          },
+          {
+            "date": "",
+            "order": 4,
+            "text": "Journal of Clinical Neuroscience"
+          },
+          {
+            "date": "",
+            "order": 5,
+            "text": "Journal of Neuroengineering and Rehabilitation"
+          }
+        ],
+        "order": 2,
+        "title": "Manuscript review"
+      }
+    ],
+    "compact": false,
+    "eyebrow": "Professional Contributions",
+    "items": [],
+    "layout": "cards",
+    "open": false,
+    "order": 4,
+    "title": "Organizations and manuscript review"
+  }
+]

@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
   <head>
@@ -42,62 +44,33 @@
       </section>
 
       <section class="page-main publication-list">
-        <article class="card publication-item">
-          <div>
-            <h3>Measurement Properties of the Functional Balance Ability Measure Across Subacute Neurologic Diagnoses</h3>
-            <p>Evaluates the measurement properties of the Functional Balance Ability Measure across subacute neurologic diagnoses, supporting its use as a rehabilitation outcome tool</p>
-            <div class="meta-list"><a class="pill" href="https://doi.org/10.1016/j.arrct.2025.100583" target="_blank" rel="noreferrer">DOI</a><span class="pill">Behavioral Outcomes</span><span class="pill">Behavioral Outcomes Research</span></div>
-          </div>
-          <span class="year">2026</span>
-        </article>
-        <article class="card publication-item">
-          <div>
-            <h3>The Functional Balance Ability Measure</h3>
-            <p>Introduces a measure of balance designed to span a broad range of functional mobility in persons post-stroke</p>
-            <div class="meta-list"><a class="pill" href="https://doi.org/10.1016/j.arrct.2023.100296" target="_blank" rel="noreferrer">DOI</a><span class="pill">Stroke Recovery</span><span class="pill">Behavioral Outcomes Research</span></div>
-          </div>
-          <span class="year">2023</span>
-        </article>
-        <article class="card publication-item">
-          <div>
-            <h3>Systematic Evaluation of the Effects of Voluntary Activation on Lower Extremity Motor Thresholds</h3>
-            <p>Examines how voluntary activation affects lower-extremity motor threshold responses, informing neurophysiological assessment approaches</p>
-            <div class="meta-list"><a class="pill" href="https://doi.org/10.3390/jcm12185993" target="_blank" rel="noreferrer">DOI</a><span class="pill">Neurophysiology</span><span class="pill">Neuroplasticity &amp; Neuromodulation</span></div>
-          </div>
-          <span class="year">2023</span>
-        </article>
-        <article class="card publication-item">
-          <div>
-            <h3>The Effects of Neuromuscular Electrical Stimulation to the Ankle Pronators</h3>
-            <p>Studies neural excitability and functional status after neuromuscular electrical stimulation in patients with chronic ankle instability</p>
-            <div class="meta-list"><a class="pill" href="https://doi.org/10.1016/j.ptsp.2022.12.001" target="_blank" rel="noreferrer">DOI</a><span class="pill">Neuromodulation</span><span class="pill">Neuroplasticity &amp; Neuromodulation</span></div>
-          </div>
-          <span class="year">2023</span>
-        </article>
-        <article class="card publication-item">
-          <div>
-            <h3>The Effects of 72 Hours of Dynamic Ankle Immobilization</h3>
-            <p>Investigates how short-term ankle immobilization affects neural excitability and lower-extremity kinematics</p>
-            <div class="meta-list"><a class="pill" href="https://doi.org/10.1016/j.gaitpost.2022.02.005" target="_blank" rel="noreferrer">DOI</a><span class="pill">Biomechanics</span><span class="pill">Behavioral Outcomes Research</span></div>
-          </div>
-          <span class="year">2022</span>
-        </article>
-        <article class="card publication-item">
-          <div>
-            <h3>Standing Neurophysiological Assessment of Lower Extremity Muscles Post-Stroke</h3>
-            <p>Describes a protocol for assessing lower-extremity neurophysiology in standing after stroke</p>
-            <div class="meta-list"><a class="pill" href="https://doi.org/10.3791/62601" target="_blank" rel="noreferrer">DOI</a><span class="pill">Neurophysiology</span><span class="pill">Neuroplasticity &amp; Neuromodulation</span></div>
-          </div>
-          <span class="year">2021</span>
-        </article>
-        <article class="card publication-item">
-          <div>
-            <h3>Comparing Cortico-Motor Hotspot Identification Methods in the Lower Extremities Post-Stroke</h3>
-            <p>Compares motor evoked potential amplitude and latency approaches for lower-extremity hotspot identification after stroke</p>
-            <div class="meta-list"><a class="pill" href="https://doi.org/10.1016/j.neulet.2021.135884" target="_blank" rel="noreferrer">DOI</a><span class="pill">Stroke Recovery</span><span class="pill">Neuroplasticity &amp; Neuromodulation</span></div>
-          </div>
-          <span class="year">2021</span>
-        </article>
+        {% assign publications = site.data.publications | sort: "order" %}
+        {% for publication in publications %}
+          <article class="card publication-item">
+            <div>
+              <h3>{{ publication.title | escape }}</h3>
+
+              <p>{{ publication.summary | escape }}</p>
+
+              <div class="meta-list">
+                {% if publication.doiUrl %}
+                  <a
+                    class="pill"
+                    href="{{ publication.doiUrl }}"
+                    target="_blank"
+                    rel="noreferrer"
+                  >DOI</a>
+                {% endif %}
+
+                {% for topic in publication.topics %}
+                  <span class="pill">{{ topic | escape }}</span>
+                {% endfor %}
+              </div>
+            </div>
+
+            <span class="year">{{ publication.year }}</span>
+          </article>
+        {% endfor %}
       </section>
     </main>
 

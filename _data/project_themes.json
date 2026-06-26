@@ -1,0 +1,126 @@
+[
+  {
+    "anchor": "brain-body",
+    "description": "Projects in this area examine how brain health, autonomic function, obesity, and mobility interact during stroke recovery.",
+    "eyebrow": "Brain-body recovery",
+    "order": 1,
+    "projects": [
+      {
+        "details": [
+          {
+            "label": "Resources",
+            "value": "NIH LRP and D-SPAN award materials, study protocols, clinical and neurophysiological measures"
+          },
+          {
+            "label": "Technology used",
+            "value": "Clinical assessment, neurophysiological testing, statistical modeling, reproducible analysis workflows"
+          }
+        ],
+        "order": 1,
+        "summary": "NIH-funded work examining how obesity may limit brain health and influence recovery after stroke",
+        "title": "Obesity, brain health, and stroke recovery"
+      },
+      {
+        "details": [
+          {
+            "label": "Technology used",
+            "value": "Neuroimaging-informed measures, mobility testing, statistical analysis, ECG, exploratory multimodal analysis"
+          }
+        ],
+        "order": 2,
+        "summary": "Research exploring associations between central autonomic network integrity and mobility performance after stroke",
+        "title": "Dysautonomia and chronic stroke"
+      }
+    ],
+    "title": "Brain-Body Interactions in Recovery"
+  },
+  {
+    "anchor": "neuromodulation",
+    "description": "Projects in this area use neuromodulation to understand lower-extremity sensorimotor plasticity and recovery.",
+    "eyebrow": "Neuromodulation",
+    "order": 2,
+    "projects": [
+      {
+        "details": [
+          {
+            "label": "Resources",
+            "value": "Dissertation, NIH D-SPAN F99"
+          },
+          {
+            "label": "Technology used",
+            "value": "Transcranial magnetic stimulation, sensory augmentation, paired associative stimulation"
+          }
+        ],
+        "order": 1,
+        "summary": "Dissertation work characterizing lower-extremity neurophysiological responses to sensory augmentation in chronic stroke, alongside studies evaluating individualized paired associative stimulation as a tool to assay sensorimotor plasticity in healthy adults and people with chronic stroke",
+        "title": "Sensory motor integration & plasticity"
+      },
+      {
+        "details": [
+          {
+            "label": "Resources",
+            "value": "NIH TL1/T32"
+          },
+          {
+            "label": "Technology used",
+            "value": "TMS, lower-extremity motor threshold assessment, neuronavigation"
+          }
+        ],
+        "order": 2,
+        "summary": "Work focused on lower-extremity motor threshold assessment, corticomotor excitability, and neuronavigated TMS methods that support individualized neuromodulation research after stroke",
+        "title": "Lower-extremity neurophysiology"
+      }
+    ],
+    "title": "Neuroplasticity & Neuromodulation"
+  },
+  {
+    "anchor": "outcomes",
+    "description": "Projects in this area focus on measurement, function, and clinically meaningful outcomes in rehabilitation.",
+    "eyebrow": "Outcomes research",
+    "order": 3,
+    "projects": [
+      {
+        "details": [
+          {
+            "label": "Resources",
+            "value": "MUSC Emerging Scholars Travel Award"
+          },
+          {
+            "label": "Technology used",
+            "value": "Psychometric assessment, measurement validation, rehabilitation outcomes analysis"
+          }
+        ],
+        "order": 1,
+        "summary": "Development and validation of a balance measure designed to capture ability across the spectrum of functional mobility after stroke and other neurologic diagnoses",
+        "title": "Functional Balance Ability Measure"
+      },
+      {
+        "details": [
+          {
+            "label": "Technology used",
+            "value": "Gait event detection, observational analysis, quantitative movement assessment"
+          }
+        ],
+        "order": 2,
+        "summary": "Work comparing observational gait analysis with quantitative methods for individuals with severe post-stroke gait impairment",
+        "title": "Gait analysis in severe post-stroke hemiparesis"
+      },
+      {
+        "details": [
+          {
+            "label": "Resources",
+            "value": "Domer Research Award, Office of Student Research, Appalachian State University"
+          },
+          {
+            "label": "Technology used",
+            "value": "Biomechanics, kinematic analysis, kinetic analysis"
+          }
+        ],
+        "order": 3,
+        "summary": "Research examining ankle angular velocity, acceleration, and other movement variables as reliable measures related to post-injury clinical outcomes",
+        "title": "Lower-extremity biomechanics and clinical outcomes"
+      }
+    ],
+    "title": "Behavioral Outcomes Research"
+  }
+]

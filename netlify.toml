@@ -1,0 +1,7 @@
+[build]
+  command = "corepack enable && cd studio && pnpm install --frozen-lockfile && pnpm run sync:all && cd .. && bundle install && bundle exec jekyll build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
+  RUBY_VERSION = "3.3.6"
