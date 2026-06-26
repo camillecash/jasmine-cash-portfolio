@@ -49,8 +49,7 @@
         </div>
 
         <div class="teaching-details">
-          {% assign teaching_positions = site.data.teaching.positions | sort: "order" %}
-          {% for position in teaching_positions %}
+          {% for position in site.data.teaching.positions %}
             <article class="teaching-card{% if position.featured %} featured{% endif %}">
               <div>
                 <span class="teaching-date">{{ position.date | escape }}</span>

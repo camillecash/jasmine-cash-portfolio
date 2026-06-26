@@ -25,20 +25,17 @@ const recognitionSections = await client.fetch(`
     open,
     compact,
     order,
-    "items": items[] | order(order asc) {
+    "items": items[] {
       date,
       title,
       description,
-      tags,
-      order
+      tags
     },
-    "cards": cards[] | order(order asc) {
+    "cards": cards[] {
       title,
-      order,
-      "bullets": bullets[] | order(order asc) {
+      "bullets": bullets[] {
         date,
-        text,
-        order
+        text
       }
     }
   }

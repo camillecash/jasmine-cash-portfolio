@@ -82,8 +82,7 @@
 
               {% if section.layout == "list" %}
                 <div class="recognition-list{% if section.compact %} compact{% endif %}">
-                  {% assign items = section.items | sort: "order" %}
-                  {% for item in items %}
+                  {% for item in section.items %}
                     <article class="recognition-item">
                       <span class="recognition-date">{{ item.date | escape }}</span>
                       <h3>{{ item.title | escape }}</h3>
@@ -101,13 +100,11 @@
                 </div>
               {% else %}
                 <div class="recognition-grid-wide">
-                  {% assign cards = section.cards | sort: "order" %}
-                  {% for card in cards %}
+                  {% for card in section.cards %}
                     <article class="recognition-card">
                       <h3>{{ card.title | escape }}</h3>
                       <ul class="recognition-bullets">
-                        {% assign bullets = card.bullets | sort: "order" %}
-                        {% for bullet in bullets %}
+                        {% for bullet in card.bullets %}
                           <li>
                             {% if bullet.date %}
                               <strong>{{ bullet.date | escape }}:</strong>

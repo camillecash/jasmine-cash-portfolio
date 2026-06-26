@@ -39,8 +39,7 @@
         <p class="hero-copy">A concise view of Dr. Cash's education, research roles, dissertation and thesis work, methodological strengths, credentials, and scholarly service</p>
       </section>
       <section class="page-main skill-grid">
-        {% assign skills = site.data.expertise.skills | sort: "order" %}
-        {% for skill in skills %}
+        {% for skill in site.data.expertise.skills %}
           <article class="card">
             <span class="icon-mark">
               {% case skill.icon %}
@@ -64,13 +63,11 @@
           <h2>Education and research roles</h2>
         </div>
         <div class="profile-grid">
-          {% assign profiles = site.data.expertise.profiles | sort: "order" %}
-          {% for profile in profiles %}
+          {% for profile in site.data.expertise.profiles %}
             <article class="profile-card">
               <h3>{{ profile.title | escape }}</h3>
               <div class="timeline compact-timeline">
-                {% assign profile_items = profile.items | sort: "order" %}
-                {% for item in profile_items %}
+                {% for item in profile.items %}
                   <article class="timeline-item">
                     <span class="recognition-date">{{ item.date | escape }}</span>
                     <h4>{{ item.title | escape }}</h4>
@@ -89,8 +86,7 @@
           <h2>Dissertation, thesis, and manuscript review</h2>
         </div>
         <div class="scholarly-grid">
-          {% assign scholarly_items = site.data.expertise.scholarly | sort: "order" %}
-          {% for item in scholarly_items %}
+          {% for item in site.data.expertise.scholarly %}
             <article class="profile-card">
               <span class="recognition-date">{{ item.label | escape }}</span>
               <h3>{{ item.title | escape }}</h3>
@@ -119,8 +115,7 @@
           <h2>Licenses and certifications</h2>
         </div>
         <div class="credential-grid">
-          {% assign credentials = site.data.expertise.credentials | sort: "order" %}
-          {% for credential in credentials %}
+          {% for credential in site.data.expertise.credentials %}
             <article class="credential-card">
               <span class="recognition-date">{{ credential.date | escape }}</span>
               <h3>{{ credential.title | escape }}</h3>

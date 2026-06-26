@@ -32,7 +32,12 @@ const home = await client.fetch(`
         url,
         download
       },
-      portrait
+      "portrait": {
+        "image": coalesce(portrait.uploadedImage.asset->url, portrait.image),
+        "alt": portrait.alt,
+        "noteTitle": portrait.noteTitle,
+        "noteText": portrait.noteText
+      }
     },
     about,
     interests,

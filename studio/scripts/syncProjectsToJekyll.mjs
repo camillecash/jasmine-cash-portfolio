@@ -23,10 +23,9 @@ const projectThemes = await client.fetch(`
     title,
     description,
     order,
-    "projects": projects[] | order(order asc) {
+    "projects": projects[] {
       title,
       summary,
-      order,
       "details": details[] {
         label,
         value

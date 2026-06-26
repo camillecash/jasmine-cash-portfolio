@@ -20,15 +20,14 @@ const teaching = await client.fetch(`
   *[_type == "teachingPage"][0] {
     hero,
     summary,
-    "positions": positions[] | order(order asc) {
+    "positions": positions[] {
       date,
       institution,
       role,
       description,
       coursesLabel,
       courses,
-      featured,
-      order
+      featured
     }
   }
 `)

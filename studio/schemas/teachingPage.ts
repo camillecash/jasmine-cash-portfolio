@@ -1,12 +1,5 @@
 import {defineField, defineType} from 'sanity'
 
-const orderedNumber = defineField({
-  name: 'order',
-  title: 'Order',
-  type: 'number',
-  validation: (rule) => rule.required().integer().min(1),
-})
-
 export const teachingPage = defineType({
   name: 'teachingPage',
   title: 'Teaching Page',
@@ -118,7 +111,6 @@ export const teachingPage = defineType({
               type: 'boolean',
               initialValue: false,
             }),
-            orderedNumber,
           ],
           preview: {
             select: {

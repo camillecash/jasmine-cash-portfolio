@@ -18,36 +18,31 @@ const client = createClient({
 
 const expertise = await client.fetch(`
   *[_type == "expertisePage"][0] {
-    "skills": skills[] | order(order asc) {
+    "skills": skills[] {
       icon,
       title,
-      description,
-      order
+      description
     },
-    "profiles": profiles[] | order(order asc) {
+    "profiles": profiles[] {
       title,
-      order,
-      "items": items[] | order(order asc) {
+      "items": items[] {
         date,
         title,
-        description,
-        order
+        description
       }
     },
-    "scholarly": scholarly[] | order(order asc) {
+    "scholarly": scholarly[] {
       label,
       title,
       description,
-      tags,
-      order
+      tags
     },
     reviewJournals,
-    "credentials": credentials[] | order(order asc) {
+    "credentials": credentials[] {
       date,
       title,
       issuer,
-      tags,
-      order
+      tags
     }
   }
 `)

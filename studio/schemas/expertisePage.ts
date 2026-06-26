@@ -1,12 +1,5 @@
 import {defineField, defineType} from 'sanity'
 
-const orderedNumber = defineField({
-  name: 'order',
-  title: 'Order',
-  type: 'number',
-  validation: (rule) => rule.required().integer().min(1),
-})
-
 export const expertisePage = defineType({
   name: 'expertisePage',
   title: 'Expertise Page',
@@ -51,7 +44,6 @@ export const expertisePage = defineType({
               rows: 3,
               validation: (rule) => rule.required(),
             }),
-            orderedNumber,
           ],
           preview: {
             select: {
@@ -78,7 +70,6 @@ export const expertisePage = defineType({
               type: 'string',
               validation: (rule) => rule.required(),
             }),
-            orderedNumber,
             defineField({
               name: 'items',
               title: 'Timeline Items',
@@ -108,7 +99,6 @@ export const expertisePage = defineType({
                       rows: 2,
                       validation: (rule) => rule.required(),
                     }),
-                    orderedNumber,
                   ],
                   preview: {
                     select: {
@@ -163,7 +153,6 @@ export const expertisePage = defineType({
               type: 'array',
               of: [{type: 'string'}],
             }),
-            orderedNumber,
           ],
           preview: {
             select: {
@@ -214,7 +203,6 @@ export const expertisePage = defineType({
               type: 'array',
               of: [{type: 'string'}],
             }),
-            orderedNumber,
           ],
           preview: {
             select: {

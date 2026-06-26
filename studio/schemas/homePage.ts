@@ -75,7 +75,23 @@ export const homePage = defineType({
           title: 'Portrait',
           type: 'object',
           fields: [
-            defineField({name: 'image', title: 'Image Path', type: 'string', validation: (rule) => rule.required()}),
+            defineField({
+              name: 'uploadedImage',
+              title: 'Headshot Image',
+              type: 'image',
+              description: 'Upload a replacement headshot here. If empty, the site uses the current repo image.',
+              options: {
+                hotspot: true,
+              },
+            }),
+            defineField({
+              name: 'image',
+              title: 'Fallback Image Path',
+              type: 'string',
+              description: 'Developer fallback path used when no uploaded image is selected.',
+              readOnly: true,
+              hidden: true,
+            }),
             defineField({name: 'alt', title: 'Alt Text', type: 'string', validation: (rule) => rule.required()}),
             defineField({name: 'noteTitle', title: 'Note Title', type: 'string', validation: (rule) => rule.required()}),
             defineField({name: 'noteText', title: 'Note Text', type: 'string', validation: (rule) => rule.required()}),

@@ -66,12 +66,6 @@ export const presentationSection = defineType({
               rows: 2,
               validation: (rule) => rule.required(),
             }),
-            defineField({
-              name: 'order',
-              title: 'Display Order',
-              type: 'number',
-              validation: (rule) => rule.required().integer().min(1),
-            }),
           ],
           preview: {
             select: {

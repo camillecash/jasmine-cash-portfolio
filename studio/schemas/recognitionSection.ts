@@ -93,12 +93,6 @@ export const recognitionSection = defineType({
                 layout: 'tags',
               },
             }),
-            defineField({
-              name: 'order',
-              title: 'Display Order',
-              type: 'number',
-              validation: (rule) => rule.required().integer().min(1),
-            }),
           ],
           preview: {
             select: {
@@ -127,12 +121,6 @@ export const recognitionSection = defineType({
               validation: (rule) => rule.required(),
             }),
             defineField({
-              name: 'order',
-              title: 'Display Order',
-              type: 'number',
-              validation: (rule) => rule.required().integer().min(1),
-            }),
-            defineField({
               name: 'bullets',
               title: 'Bullets',
               type: 'array',
@@ -153,12 +141,6 @@ export const recognitionSection = defineType({
                       type: 'text',
                       rows: 2,
                       validation: (rule) => rule.required(),
-                    }),
-                    defineField({
-                      name: 'order',
-                      title: 'Display Order',
-                      type: 'number',
-                      validation: (rule) => rule.required().integer().min(1),
                     }),
                   ],
                   preview: {

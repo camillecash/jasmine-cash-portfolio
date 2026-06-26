@@ -22,11 +22,10 @@ const presentationSections = await client.fetch(`
     title,
     layout,
     order,
-    "items": items[] | order(order asc) {
+    "items": items[] {
       year,
       title,
-      venue,
-      order
+      venue
     }
   }
 `)

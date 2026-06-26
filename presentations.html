@@ -59,10 +59,9 @@
                 <h2>{{ section.title | escape }}</h2>
               </div>
 
-              {% assign items = section.items | sort: "order" %}
               {% if section.layout == "abstractStrip" %}
                 <div class="abstract-strip" aria-label="{{ section.eyebrow | escape }}">
-                  {% for item in items %}
+                  {% for item in section.items %}
                     <article>
                       <span class="recognition-date">{{ item.year | escape }}</span>
                       <h3>{{ item.title | escape }}</h3>
@@ -72,7 +71,7 @@
                 </div>
               {% else %}
                 <div class="presentation-list{% if section.layout == "compact" %} compact{% endif %}">
-                  {% for item in items %}
+                  {% for item in section.items %}
                     <article class="presentation-item">
                       <span class="recognition-date">{{ item.year | escape }}</span>
                       <h3>{{ item.title | escape }}</h3>
