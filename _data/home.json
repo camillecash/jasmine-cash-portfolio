@@ -6,16 +6,14 @@
   "hero": {
     "actions": [
       {
-        "label": "Research projects",
-        "order": 1,
-        "style": "primary",
-        "url": "projects.html"
-      },
-      {
         "label": "Selected publications",
-        "order": 2,
         "style": "secondary",
         "url": "publications.html"
+      },
+      {
+        "label": "Research projects",
+        "style": "primary",
+        "url": "projects.html"
       }
     ],
     "description": "Postdoctoral scholar studying neurophysiology, neuromodulation, and functional outcomes to improve stroke recovery and physical function",
@@ -30,19 +28,16 @@
       {
         "download": false,
         "label": "LinkedIn",
-        "order": 1,
         "url": "https://www.linkedin.com/in/jasmine-cash/"
       },
       {
         "download": false,
         "label": "GitHub",
-        "order": 2,
         "url": "https://github.com/jasminecash"
       },
       {
         "download": true,
         "label": "Download CV",
-        "order": 3,
         "url": "assets/cv.pdf"
       }
     ],
@@ -67,21 +62,18 @@
         "description": "Studying how neural, autonomic, metabolic, and physical systems shape recovery after stroke",
         "linkLabel": "Related projects",
         "linkUrl": "projects.html#brain-body",
-        "order": 1,
         "title": "Brain-Body Interactions in Recovery"
       },
       {
         "description": "Using stimulation-based approaches to probe sensorimotor plasticity and support recovery",
         "linkLabel": "Related projects",
         "linkUrl": "projects.html#neuromodulation",
-        "order": 2,
         "title": "Neuroplasticity & Neuromodulation"
       },
       {
         "description": "Developing and validating measures that capture balance, mobility, fatigue, and function",
         "linkLabel": "Related projects",
         "linkUrl": "projects.html#outcomes",
-        "order": 3,
         "title": "Behavioral Outcomes Research"
       }
     ],

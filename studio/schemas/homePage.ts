@@ -1,12 +1,5 @@
 import {defineField, defineType} from 'sanity'
 
-const orderedNumber = defineField({
-  name: 'order',
-  title: 'Order',
-  type: 'number',
-  validation: (rule) => rule.required().integer().min(1),
-})
-
 export const homePage = defineType({
   name: 'homePage',
   title: 'Home Page',
@@ -50,7 +43,6 @@ export const homePage = defineType({
                   },
                   validation: (rule) => rule.required(),
                 }),
-                orderedNumber,
               ],
               preview: {
                 select: {title: 'label', subtitle: 'url'},
@@ -71,7 +63,6 @@ export const homePage = defineType({
                 defineField({name: 'label', title: 'Label', type: 'string', validation: (rule) => rule.required()}),
                 defineField({name: 'url', title: 'URL', type: 'string', validation: (rule) => rule.required()}),
                 defineField({name: 'download', title: 'Download Link', type: 'boolean', initialValue: false}),
-                orderedNumber,
               ],
               preview: {
                 select: {title: 'label', subtitle: 'url'},
@@ -149,7 +140,6 @@ export const homePage = defineType({
                 }),
                 defineField({name: 'linkLabel', title: 'Link Label', type: 'string', validation: (rule) => rule.required()}),
                 defineField({name: 'linkUrl', title: 'Link URL', type: 'string', validation: (rule) => rule.required()}),
-                orderedNumber,
               ],
               preview: {
                 select: {title: 'title', subtitle: 'description'},

@@ -22,17 +22,15 @@ const home = await client.fetch(`
       eyebrow,
       title,
       description,
-      "actions": actions[] | order(order asc) {
+      "actions": actions[] {
         label,
         url,
-        style,
-        order
+        style
       },
-      "professionalLinks": professionalLinks[] | order(order asc) {
+      "professionalLinks": professionalLinks[] {
         label,
         url,
-        download,
-        order
+        download
       },
       portrait
     },
@@ -41,12 +39,11 @@ const home = await client.fetch(`
     researchThemes {
       eyebrow,
       title,
-      "items": items[] | order(order asc) {
+      "items": items[] {
         title,
         description,
         linkLabel,
-        linkUrl,
-        order
+        linkUrl
       }
     }
   }

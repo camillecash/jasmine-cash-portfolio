@@ -54,14 +54,12 @@
           <h1>{{ site.data.home.hero.title | escape }}</h1>
           <p class="hero-copy">{{ site.data.home.hero.description | escape }}</p>
           <div class="hero-actions">
-            {% assign hero_actions = site.data.home.hero.actions | sort: "order" %}
-            {% for action in hero_actions %}
+            {% for action in site.data.home.hero.actions %}
               <a class="button{% if action.style == 'secondary' %} secondary{% endif %}" href="{{ action.url | escape }}">{{ action.label | escape }}</a>
             {% endfor %}
           </div>
           <div class="social-row" aria-label="Professional links">
-            {% assign professional_links = site.data.home.hero.professionalLinks | sort: "order" %}
-            {% for link in professional_links %}
+            {% for link in site.data.home.hero.professionalLinks %}
               <a href="{{ link.url | escape }}"{% unless link.download %} target="_blank" rel="noreferrer"{% endunless %}{% if link.download %} download{% endif %}>{{ link.label | escape }}</a>
             {% endfor %}
           </div>
@@ -95,8 +93,7 @@
         <p class="eyebrow">{{ site.data.home.researchThemes.eyebrow | escape }}</p>
         <h2>{{ site.data.home.researchThemes.title | escape }}</h2>
         <div class="research-list" aria-label="Research areas">
-          {% assign research_themes = site.data.home.researchThemes.items | sort: "order" %}
-          {% for theme in research_themes %}
+          {% for theme in site.data.home.researchThemes.items %}
             <article class="card tint">
               <h3>{{ theme.title | escape }}</h3>
               <p>{{ theme.description | escape }}</p>
