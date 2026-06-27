@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "description": "Sanity Studio for Jasmine Cash portfolio content.",
+  "packageManager": "pnpm@11.7.0",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
