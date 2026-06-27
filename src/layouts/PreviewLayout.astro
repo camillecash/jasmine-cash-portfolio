@@ -1,5 +1,6 @@
 ---
 import '../styles.css'
+import SanityVisualEditing from '../components/SanityVisualEditing'
 const {
   settings,
   title = settings.siteTitle,
@@ -66,6 +67,7 @@ const footerLinks = settings.footerLinks || []
         </div>
       </div>
     </footer>
+    <SanityVisualEditing client:only="react" />
     <script is:inline src="/site.js"></script>
   </body>
 </html>

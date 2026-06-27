@@ -12,6 +12,10 @@ if (!previewPages.has(page)) {
 const data = await getPreviewData()
 const {settings, home, projectThemes, publications, presentationSections, expertise, teaching, recognitionSections} = data
 const sortByOrder = (items = []) => [...items].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+const rootPath = (path = '') => {
+  if (!path || path.includes('://') || path.startsWith('/')) return path
+  return `/${path}`
+}
 const pageTitles = {
   home: settings.siteTitle,
   projects: 'Projects',
@@ -38,7 +42,7 @@ const pageTitles = {
           </div>
         </div>
         <div class="portrait-panel">
-          <img class="portrait" src={home.hero.portrait.image} alt={home.hero.portrait.alt} />
+          <img class="portrait" src={rootPath(home.hero.portrait.image)} alt={home.hero.portrait.alt} />
           <div class="quick-note"><strong>{home.hero.portrait.noteTitle}</strong><span>{home.hero.portrait.noteText}</span></div>
         </div>
       </section>

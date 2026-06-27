@@ -53,6 +53,40 @@ export default defineConfig({
         'http://127.0.0.1:4321',
       ],
       resolve: {
+        locations: {
+          homePage: () => ({
+            message: 'Preview this page',
+            locations: [{title: 'Home preview', href: `${previewBaseUrl}/preview/home`}],
+          }),
+          siteSettings: () => ({
+            message: 'Preview this page',
+            locations: [{title: 'Home preview', href: `${previewBaseUrl}/preview/home`}],
+          }),
+          projectTheme: () => ({
+            message: 'Preview this page',
+            locations: [{title: 'Projects preview', href: `${previewBaseUrl}/preview/projects`}],
+          }),
+          publication: () => ({
+            message: 'Preview this page',
+            locations: [{title: 'Publications preview', href: `${previewBaseUrl}/preview/publications`}],
+          }),
+          presentationSection: () => ({
+            message: 'Preview this page',
+            locations: [{title: 'Presentations preview', href: `${previewBaseUrl}/preview/presentations`}],
+          }),
+          expertisePage: () => ({
+            message: 'Preview this page',
+            locations: [{title: 'Expertise preview', href: `${previewBaseUrl}/preview/expertise`}],
+          }),
+          teachingPage: () => ({
+            message: 'Preview this page',
+            locations: [{title: 'Teaching preview', href: `${previewBaseUrl}/preview/teaching`}],
+          }),
+          recognitionSection: () => ({
+            message: 'Preview this page',
+            locations: [{title: 'Recognition preview', href: `${previewBaseUrl}/preview/recognition`}],
+          }),
+        },
         mainDocuments: [
           {route: '/preview/home', type: 'homePage'},
           {route: '/preview/home', type: 'siteSettings'},
@@ -63,17 +97,6 @@ export default defineConfig({
           {route: '/preview/teaching', type: 'teachingPage'},
           {route: '/preview/recognition', type: 'recognitionSection'},
         ],
-        locations: (params) => {
-          const page = pageForType(params.type)
-          return {
-            locations: [
-              {
-                title: `Preview ${page === 'home' ? 'Home' : page[0].toUpperCase() + page.slice(1)}`,
-                href: `${previewBaseUrl}/preview/${page}`,
-              },
-            ],
-          }
-        },
       },
     }),
     visionTool(),

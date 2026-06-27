@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
+import react from '@astrojs/react';
 
 export default defineConfig({
   output: 'server',
@@ -7,7 +8,15 @@ export default defineConfig({
     imageService: 'compile',
     prerenderEnvironment: 'node'
   }),
+  integrations: [react()],
   build: {
     format: 'file'
+  },
+  vite: {
+    optimizeDeps: {
+      include: [
+        'react/compiler-runtime'
+      ]
+    }
   }
 });
