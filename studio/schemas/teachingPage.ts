@@ -1,5 +1,13 @@
 import {defineField, defineType} from 'sanity'
 
+const legacyOrderField = defineField({
+  name: 'order',
+  title: 'Legacy Order',
+  type: 'number',
+  hidden: true,
+  readOnly: true,
+})
+
 export const teachingPage = defineType({
   name: 'teachingPage',
   title: 'Teaching Page',
@@ -111,6 +119,7 @@ export const teachingPage = defineType({
               type: 'boolean',
               initialValue: false,
             }),
+            legacyOrderField,
           ],
           preview: {
             select: {

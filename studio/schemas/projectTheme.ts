@@ -1,5 +1,13 @@
 import {defineField, defineType} from 'sanity'
 
+const legacyOrderField = defineField({
+  name: 'order',
+  title: 'Legacy Order',
+  type: 'number',
+  hidden: true,
+  readOnly: true,
+})
+
 export const projectTheme = defineType({
   name: 'projectTheme',
   title: 'Project Themes',
@@ -60,6 +68,7 @@ export const projectTheme = defineType({
               rows: 3,
               validation: (rule) => rule.required(),
             }),
+            legacyOrderField,
             defineField({
               name: 'details',
               title: 'Details',

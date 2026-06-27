@@ -1,15 +1,18 @@
 ---
 ---
+{% assign settings = site.data.site_settings %}
+{% assign site_title = settings.siteTitle | default: "Jasmine J. Cash, PhD, CSCS" %}
+{% assign site_tagline = settings.siteTagline | default: "Clinical researcher and postdoctoral scholar" %}
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Selected grants, honors, leadership roles, service activities, and professional contributions for Jasmine J. Cash.">
-    <meta property="og:title" content="Recognition | Jasmine J. Cash, PhD, CSCS">
+    <meta property="og:title" content="Recognition | {{ site_title | escape }}">
     <meta property="og:description" content="Selected grants, honors, leadership roles, service activities, and professional contributions.">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Jasmine J. Cash">
+    <meta property="og:site_name" content="{{ site_title | escape }}">
     <meta property="og:url" content="https://jasminecash.com/recognition.html">
     <meta property="og:image" content="https://jasminecash.com/assets/social-preview.png">
     <meta property="og:image:type" content="image/png">
@@ -17,7 +20,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://jasminecash.com/assets/social-preview.png">
-    <title>Recognition | Jasmine J. Cash, PhD, CSCS</title>
+    <title>Recognition | {{ site_title | escape }}</title>
     <link rel="canonical" href="https://jasminecash.com/recognition.html">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
@@ -25,7 +28,7 @@
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="index.html"><strong>Jasmine J. Cash, PhD, CSCS</strong><span>Clinical researcher and postdoctoral scholar</span></a>
+        <a class="brand" href="index.html"><strong>{{ site_title | escape }}</strong><span>{{ site_tagline | escape }}</span></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
         <div class="nav-links" id="primary-menu">
           <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="expertise.html">Expertise</a><a href="publications.html">Publications</a><a href="presentations.html">Presentations</a><a href="teaching.html">Teaching</a><a href="recognition.html" aria-current="page">Recognition</a>
@@ -124,11 +127,11 @@
     </main>
     <footer class="site-footer">
       <div class="footer-inner">
-        <span>Jasmine J. Cash, PhD, CSCS</span>
+        <span>{{ settings.footerName | default: site_title | escape }}</span>
         <div class="social-row">
-          <a href="https://www.linkedin.com/in/jasmine-cash/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/jasminecash" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="assets/cv.pdf" download>CV</a>
+          {% for link in settings.footerLinks %}
+            <a href="{{ link.url | escape }}"{% unless link.download %} target="_blank" rel="noreferrer"{% endunless %}{% if link.download %} download{% endif %}>{{ link.label | escape }}</a>
+          {% endfor %}
         </div>
       </div>
     </footer>

@@ -1,5 +1,13 @@
 import {defineField, defineType} from 'sanity'
 
+const legacyOrderField = defineField({
+  name: 'order',
+  title: 'Legacy Order',
+  type: 'number',
+  hidden: true,
+  readOnly: true,
+})
+
 export const expertisePage = defineType({
   name: 'expertisePage',
   title: 'Expertise Page',
@@ -44,6 +52,7 @@ export const expertisePage = defineType({
               rows: 3,
               validation: (rule) => rule.required(),
             }),
+            legacyOrderField,
           ],
           preview: {
             select: {
@@ -99,6 +108,7 @@ export const expertisePage = defineType({
                       rows: 2,
                       validation: (rule) => rule.required(),
                     }),
+                    legacyOrderField,
                   ],
                   preview: {
                     select: {
@@ -109,6 +119,7 @@ export const expertisePage = defineType({
                 }),
               ],
             }),
+            legacyOrderField,
           ],
           preview: {
             select: {
@@ -153,6 +164,7 @@ export const expertisePage = defineType({
               type: 'array',
               of: [{type: 'string'}],
             }),
+            legacyOrderField,
           ],
           preview: {
             select: {
@@ -203,6 +215,7 @@ export const expertisePage = defineType({
               type: 'array',
               of: [{type: 'string'}],
             }),
+            legacyOrderField,
           ],
           preview: {
             select: {

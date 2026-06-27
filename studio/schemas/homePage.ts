@@ -1,5 +1,13 @@
 import {defineField, defineType} from 'sanity'
 
+const legacyOrderField = defineField({
+  name: 'order',
+  title: 'Legacy Order',
+  type: 'number',
+  hidden: true,
+  readOnly: true,
+})
+
 export const homePage = defineType({
   name: 'homePage',
   title: 'Home Page',
@@ -31,6 +39,7 @@ export const homePage = defineType({
               fields: [
                 defineField({name: 'label', title: 'Label', type: 'string', validation: (rule) => rule.required()}),
                 defineField({name: 'url', title: 'URL', type: 'string', validation: (rule) => rule.required()}),
+                legacyOrderField,
                 defineField({
                   name: 'style',
                   title: 'Style',
@@ -62,6 +71,7 @@ export const homePage = defineType({
               fields: [
                 defineField({name: 'label', title: 'Label', type: 'string', validation: (rule) => rule.required()}),
                 defineField({name: 'url', title: 'URL', type: 'string', validation: (rule) => rule.required()}),
+                legacyOrderField,
                 defineField({name: 'download', title: 'Download Link', type: 'boolean', initialValue: false}),
               ],
               preview: {
@@ -147,6 +157,7 @@ export const homePage = defineType({
               type: 'object',
               fields: [
                 defineField({name: 'title', title: 'Title', type: 'string', validation: (rule) => rule.required()}),
+                legacyOrderField,
                 defineField({
                   name: 'description',
                   title: 'Description',

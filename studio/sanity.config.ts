@@ -9,7 +9,20 @@ export default defineConfig({
   title: 'Jasmine Cash Portfolio',
   projectId: 'qu5bojff',
   dataset: 'production',
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('Content')
+          .items([
+            S.listItem()
+              .title('Site Settings')
+              .child(S.document().schemaType('siteSettings').documentId('site-settings')),
+            ...S.documentTypeListItems().filter((item) => item.getId() !== 'siteSettings'),
+          ]),
+    }),
+    visionTool(),
+  ],
   schema: {
     types: schemaTypes,
   },
