@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {heroFields, simpleSectionFields} from './sharedPageFields'
 
 const legacyOrderField = defineField({
   name: 'order',
@@ -12,7 +13,28 @@ export const expertisePage = defineType({
   name: 'expertisePage',
   title: 'Expertise Page',
   type: 'document',
+  initialValue: {
+    hero: {
+      eyebrow: 'Research Profile',
+      title: 'Training and expertise',
+      description:
+        "A concise view of Dr. Cash's education, research roles, dissertation and thesis work, methodological strengths, credentials, and scholarly service",
+    },
+    profileSection: {eyebrow: 'Training and Experience', title: 'Education and research roles'},
+    scholarlySection: {
+      eyebrow: 'Scholarly Foundations',
+      title: 'Dissertation, thesis, and manuscript review',
+      reviewTitle: 'Manuscript review',
+    },
+    credentialSection: {eyebrow: 'Credentials', title: 'Licenses and certifications'},
+  },
   fields: [
+    defineField({
+      name: 'hero',
+      title: 'Top Intro',
+      type: 'object',
+      fields: heroFields,
+    }),
     defineField({
       name: 'skills',
       title: 'Skills',
@@ -62,6 +84,12 @@ export const expertisePage = defineType({
           },
         }),
       ],
+    }),
+    defineField({
+      name: 'profileSection',
+      title: 'Training Section Heading',
+      type: 'object',
+      fields: simpleSectionFields,
     }),
     defineField({
       name: 'profiles',
@@ -130,6 +158,15 @@ export const expertisePage = defineType({
       ],
     }),
     defineField({
+      name: 'scholarlySection',
+      title: 'Scholarly Section Heading',
+      type: 'object',
+      fields: [
+        ...simpleSectionFields,
+        defineField({name: 'reviewTitle', title: 'Review Card Title', type: 'string'}),
+      ],
+    }),
+    defineField({
       name: 'scholarly',
       title: 'Scholarly Foundations',
       type: 'array',
@@ -180,6 +217,12 @@ export const expertisePage = defineType({
       title: 'Review Journals',
       type: 'array',
       of: [{type: 'string'}],
+    }),
+    defineField({
+      name: 'credentialSection',
+      title: 'Credential Section Heading',
+      type: 'object',
+      fields: simpleSectionFields,
     }),
     defineField({
       name: 'credentials',

@@ -18,7 +18,12 @@ const client = createClient({
 
 const teaching = await client.fetch(`
   *[_type == "teachingPage"][0] {
-    hero,
+    hero {
+      eyebrow,
+      title,
+      description,
+      paragraphs
+    },
     summary,
     "positions": positions[] {
       date,
@@ -38,7 +43,16 @@ if (!teaching) {
   )
 }
 
+const output = {
+  ...teaching,
+  hero: {
+    ...teaching.hero,
+    description: teaching.hero?.description || teaching.hero?.paragraphs?.join(' '),
+  },
+}
+delete output.hero.paragraphs
+
 await fs.mkdir(path.dirname(outputPath), {recursive: true})
-await fs.writeFile(outputPath, `${JSON.stringify(teaching, null, 2)}\n`)
+await fs.writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`)
 
 console.log(`Synced teaching page data to ${outputPath}`)

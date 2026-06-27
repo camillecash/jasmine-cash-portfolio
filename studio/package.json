@@ -23,8 +23,9 @@
     "sync:teaching": "node scripts/syncTeachingToJekyll.mjs",
     "import:home": "node scripts/importHome.mjs",
     "sync:home": "node scripts/syncHomeToJekyll.mjs",
+    "sync:page-documents": "node scripts/syncPageDocumentsToJekyll.mjs",
     "sync:site-settings": "node scripts/syncSiteSettingsToJekyll.mjs",
-    "sync:all": "pnpm run sync:site-settings && pnpm run sync:home && pnpm run sync:projects && pnpm run sync:expertise && pnpm run sync:publications && pnpm run sync:presentations && pnpm run sync:teaching && pnpm run sync:recognition"
+    "sync:all": "pnpm run sync:site-settings && pnpm run sync:home && pnpm run sync:page-documents && pnpm run sync:projects && pnpm run sync:expertise && pnpm run sync:publications && pnpm run sync:presentations && pnpm run sync:teaching && pnpm run sync:recognition"
   },
   "dependencies": {
     "@sanity/client": "latest",

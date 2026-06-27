@@ -1,17 +1,30 @@
 ---
 export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { publications } from '../content';
+import { publications, publicationsPage } from '../content';
+const content = publicationsPage;
 ---
 <BaseLayout title="Publications" description="Selected peer-reviewed publications by Jasmine J. Cash in rehabilitation measurement, neurophysiology, neuromodulation, biomechanics, and stroke recovery." current="publications" path="publications.html">
   <main>
     <section class="page-hero">
-      <p class="eyebrow">Peer-Reviewed Work</p>
-      <h1>Publications</h1>
-      <p class="hero-copy">Peer-reviewed publications in rehabilitation measurement, neurophysiology, neuromodulation, biomechanics, and stroke recovery</p>
-      <div class="hero-actions">
-        <a class="button" href="https://scholar.google.com/citations?user=A7vh1zEAAAAJ&hl=en&oi=ao" target="_blank" rel="noreferrer">Google Scholar</a>
-      </div>
+      <p class="eyebrow">{content.hero.eyebrow}</p>
+      <h1>{content.hero.title}</h1>
+      <p class="hero-copy">{content.hero.description}</p>
+      {content.hero.actions?.length > 0 && (
+        <div class="hero-actions">
+          {content.hero.actions.map((action) => (
+            <a
+              class={`button${action.style === 'secondary' ? ' secondary' : ''}`}
+              href={action.url}
+              target={action.newTab ? '_blank' : undefined}
+              rel={action.newTab ? 'noreferrer' : undefined}
+              download={action.download ? true : undefined}
+            >
+              {action.label}
+            </a>
+          ))}
+        </div>
+      )}
     </section>
 
     <section class="page-main publication-list">

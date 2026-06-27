@@ -1,14 +1,15 @@
 ---
 export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { projectThemes } from '../content';
+import { projectsPage, projectThemes } from '../content';
+const content = projectsPage;
 ---
 <BaseLayout title="Projects" description="Research projects by Jasmine J. Cash across brain-body interactions, neuromodulation, and rehabilitation outcomes." current="projects" path="projects.html">
   <main>
     <section class="page-hero projects-hero">
-      <p class="eyebrow">Research Portfolio</p>
-      <h1>Projects</h1>
-      <p class="hero-copy">Dr. Cash's projects span three connected themes: brain-body interactions in recovery, neuroplasticity and neuromodulation, and behavioral outcomes research.</p>
+      <p class="eyebrow">{content.hero.eyebrow}</p>
+      <h1>{content.hero.title}</h1>
+      <p class="hero-copy">{content.hero.description}</p>
     </section>
 
     <nav class="project-overview" aria-label="Project themes">

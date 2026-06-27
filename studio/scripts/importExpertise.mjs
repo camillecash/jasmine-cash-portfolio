@@ -61,6 +61,10 @@ const credentials = (expertise.credentials || []).map((credential) => ({
 const document = {
   _id: 'expertise-page',
   _type: 'expertisePage',
+  hero: expertise.hero,
+  profileSection: expertise.profileSection,
+  scholarlySection: expertise.scholarlySection,
+  credentialSection: expertise.credentialSection,
   skills,
   profiles,
   scholarly,

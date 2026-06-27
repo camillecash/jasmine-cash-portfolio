@@ -1,0 +1,143 @@
+{
+  "hero": {
+    "description": "Selected national, international, and invited presentations on stroke recovery, neuromodulation, rehabilitation outcomes, and brain-body interactions",
+    "eyebrow": "Conference and Invited Talks",
+    "title": "Presentations"
+  },
+  "sections": [
+    {
+      "eyebrow": "Recent Presentations",
+      "items": [
+        {
+          "order": 1,
+          "title": "Autonomic Reactivity in Chronic Stroke",
+          "venue": "Joint Charleston and Columbia VA Research Day, Charleston, SC",
+          "year": "2026"
+        },
+        {
+          "order": 2,
+          "title": "Accelerated High-Frequency rTMS For Post-Stroke Fatigue",
+          "venue": "American Society for Neurorehabilitation, Atlanta, GA",
+          "year": "2025"
+        },
+        {
+          "order": 3,
+          "title": "The Effects of Paired Associative Stimulation Targeting the Lower Extremities",
+          "venue": "6th International Brain Stimulation Conference, Kobe, Japan",
+          "year": "2025"
+        },
+        {
+          "order": 4,
+          "title": "Validity of the Functional Balance Ability Measure Across Neurological Diagnoses",
+          "venue": "American Physical Therapy Association Combined Sections Meeting, Houston, TX",
+          "year": "2024"
+        },
+        {
+          "order": 5,
+          "title": "Paired Associative Stimulation as a Tool for Assessing Sensorimotor Neural Signaling",
+          "venue": "ACTS Translational Science, Washington, DC",
+          "year": "2023"
+        },
+        {
+          "order": 6,
+          "title": "Muscle Activation State and Lower Extremity Motor Threshold Responses",
+          "venue": "5th International Brain Stimulation Conference, Lisbon, Portugal",
+          "year": "2023"
+        },
+        {
+          "order": 7,
+          "title": "The Functional Balance Ability Measure",
+          "venue": "Perry V. Halushka MUSC Research Day, Charleston, SC",
+          "year": "2022"
+        },
+        {
+          "order": 8,
+          "title": "Comparison of Gait Event Detection Methods in Severe Post-Stroke Hemiparesis",
+          "venue": "Human Movement Science Symposium, Chapel Hill, NC",
+          "year": "2022"
+        }
+      ],
+      "layout": "standard",
+      "order": 1,
+      "title": "Conference presentations"
+    },
+    {
+      "eyebrow": "Invited Presentations",
+      "items": [
+        {
+          "order": 1,
+          "title": "The Effects of Obesity on Brain Age",
+          "venue": "University of South Carolina Aging Brain Cohort",
+          "year": "2025"
+        },
+        {
+          "order": 2,
+          "title": "Characterizing Lower Extremity Neurophysiological Responses to Sensory Augmentation",
+          "venue": "DSPAN Braintrust Meeting",
+          "year": "2024"
+        },
+        {
+          "order": 3,
+          "title": "Gait Analysis Considerations for Individuals Post-Stroke With Severe Hemiparesis",
+          "venue": "Southeast American College of Sports Medicine",
+          "year": "2024"
+        },
+        {
+          "order": 4,
+          "title": "Neuronavigated Lower Extremity Transcranial Magnetic Stimulation",
+          "venue": "National Center of Neuromodulation for Rehabilitation introductory workshop lab demonstration",
+          "year": "2022-2023"
+        }
+      ],
+      "layout": "compact",
+      "order": 2,
+      "title": "Invited talks, symposiums, and demonstrations"
+    },
+    {
+      "eyebrow": "Selected Abstracts",
+      "items": [
+        {
+          "order": 1,
+          "title": "Central Autonomic Network Integrity Is Associated with Mobility Performance After Stroke",
+          "venue": "Atlanta VA Research Day, Atlanta, GA",
+          "year": "2026"
+        },
+        {
+          "order": 2,
+          "title": "Autonomic Reactivity in Chronic Stroke",
+          "venue": "Joint Charleston and Columbia VA Research Day, Columbia, SC",
+          "year": "2026"
+        },
+        {
+          "order": 3,
+          "title": "Quantifying an Explanatory Model for Balance Ability",
+          "venue": "American Society for Neurorehabilitation Meeting, Atlanta, GA",
+          "year": "2025"
+        },
+        {
+          "order": 4,
+          "title": "Validity of the Functional Balance Ability Measure Across Neurological Diagnoses",
+          "venue": "APTA Combined Sections Meeting, Houston, TX",
+          "year": "2025"
+        }
+      ],
+      "layout": "abstractStrip",
+      "order": 3,
+      "title": "Recent accepted abstracts"
+    }
+  ],
+  "summary": {
+    "actions": [
+      {
+        "download": true,
+        "label": "Download CV",
+        "newTab": false,
+        "style": "secondary",
+        "url": "assets/cv.pdf"
+      }
+    ],
+    "description": "These selections emphasize recent and representative presentations. Additional abstracts are available in Dr. Cash's CV.",
+    "eyebrow": "Selected Highlights",
+    "title": "Disseminating research across rehabilitation, neuroscience, and movement science communities"
+  }
+}

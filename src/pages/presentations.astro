@@ -1,22 +1,37 @@
 ---
 export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { presentationSections } from '../content';
+import { presentationSections, presentationsPage } from '../content';
+const content = presentationsPage;
 ---
 <BaseLayout title="Presentations" description="Selected conference and invited presentations by Jasmine J. Cash on stroke recovery, neuromodulation, and rehabilitation outcomes." current="presentations" path="presentations.html">
   <main>
     <section class="page-hero presentations-hero">
-      <p class="eyebrow">Conference and Invited Talks</p>
-      <h1>Presentations</h1>
-      <p class="hero-copy">Selected national, international, and invited presentations on stroke recovery, neuromodulation, rehabilitation outcomes, and brain-body interactions</p>
+      <p class="eyebrow">{content.hero.eyebrow}</p>
+      <h1>{content.hero.title}</h1>
+      <p class="hero-copy">{content.hero.description}</p>
     </section>
 
     <section class="page-main presentations-layout">
       <aside class="presentations-summary">
-        <p class="eyebrow">Selected Highlights</p>
-        <h2>Disseminating research across rehabilitation, neuroscience, and movement science communities</h2>
-        <p>These selections emphasize recent and representative presentations. Additional abstracts are available in Dr. Cash's CV.</p>
-        <div class="hero-actions"><a class="button small secondary" href="assets/cv.pdf" download>Download CV</a></div>
+        <p class="eyebrow">{content.summary.eyebrow}</p>
+        <h2>{content.summary.title}</h2>
+        <p>{content.summary.description}</p>
+        {content.summary.actions?.length > 0 && (
+          <div class="hero-actions">
+            {content.summary.actions.map((action) => (
+              <a
+                class={`button small${action.style === 'secondary' ? ' secondary' : ''}`}
+                href={action.url}
+                target={action.newTab ? '_blank' : undefined}
+                rel={action.newTab ? 'noreferrer' : undefined}
+                download={action.download ? true : undefined}
+              >
+                {action.label}
+              </a>
+            ))}
+          </div>
+        )}
       </aside>
 
       <div class="presentation-sections">

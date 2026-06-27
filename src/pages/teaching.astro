@@ -2,7 +2,7 @@
 export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { teaching } from '../content';
-const heroCopy = teaching.hero.paragraphs.join(' ');
+const heroCopy = teaching.hero.description || teaching.hero.paragraphs?.join(' ');
 ---
 <BaseLayout title="Teaching" description="Teaching and mentorship experience for Jasmine J. Cash, including Anatomy and Physiology instruction and student mentorship." current="teaching" path="teaching.html">
   <main>

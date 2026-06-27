@@ -1,4 +1,8 @@
 {
+  "credentialSection": {
+    "eyebrow": "Credentials",
+    "title": "Licenses and certifications"
+  },
   "credentials": [
     {
       "date": "2026",
@@ -73,6 +77,15 @@
       "title": "American Red Cross First Aid/CPR/AED"
     }
   ],
+  "hero": {
+    "description": "A concise view of Dr. Cash's education, research roles, dissertation and thesis work, methodological strengths, credentials, and scholarly service",
+    "eyebrow": "Research Profile",
+    "title": "Training and expertise"
+  },
+  "profileSection": {
+    "eyebrow": "Training and Experience",
+    "title": "Education and research roles"
+  },
   "profiles": [
     {
       "items": [
@@ -142,6 +155,11 @@
       "title": "The Effect of Three Days of Ankle Immobilization on Joint Motion and Neural Excitability"
     }
   ],
+  "scholarlySection": {
+    "eyebrow": "Scholarly Foundations",
+    "reviewTitle": "Manuscript review",
+    "title": "Dissertation, thesis, and manuscript review"
+  },
   "skills": [
     {
       "description": "Lower-extremity neurophysiological assessment, corticomotor excitability, and sensorimotor recovery after stroke",

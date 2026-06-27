@@ -2,9 +2,13 @@ import {createClient} from '@sanity/client'
 import {env} from 'cloudflare:workers'
 import staticHome from '../../_data/home.json'
 import staticSettings from '../../_data/site_settings.json'
+import staticProjectsPage from '../../_data/projects_page.json'
 import staticProjectThemes from '../../_data/project_themes.json'
+import staticPublicationsPage from '../../_data/publications_page.json'
 import staticPublications from '../../_data/publications.json'
+import staticPresentationsPage from '../../_data/presentations_page.json'
 import staticPresentationSections from '../../_data/presentation_sections.json'
+import staticRecognitionPage from '../../_data/recognition_page.json'
 import staticRecognitionSections from '../../_data/recognition_sections.json'
 import staticExpertise from '../../_data/expertise.json'
 import staticTeaching from '../../_data/teaching.json'
@@ -68,11 +72,15 @@ export function pageForType(type = '') {
   const map: Record<string, string> = {
     siteSettings: 'home',
     homePage: 'home',
+    projectsPage: 'projects',
     projectTheme: 'projects',
+    publicationsPage: 'publications',
     publication: 'publications',
+    presentationsPage: 'presentations',
     presentationSection: 'presentations',
     expertisePage: 'expertise',
     teachingPage: 'teaching',
+    recognitionPage: 'recognition',
     recognitionSection: 'recognition',
   }
 
@@ -82,7 +90,20 @@ export function pageForType(type = '') {
 export async function getPreviewData() {
   const client = createDraftClient()
 
-  const [settings, home, projectThemes, publications, presentationSections, expertise, teaching, recognitionSections] =
+  const [
+    settings,
+    home,
+    projectsPage,
+    projectThemes,
+    publicationsPage,
+    publications,
+    presentationsPage,
+    presentationSections,
+    expertise,
+    teaching,
+    recognitionPage,
+    recognitionSections,
+  ] =
     await Promise.all([
       client.fetch(`
         *[_type == "siteSettings"][0] {
@@ -120,6 +141,19 @@ export async function getPreviewData() {
         }
       `),
       client.fetch(`
+        *[_type == "projectsPage"][0] {
+          hero { eyebrow, title, description },
+          "themes": themes[] {
+            anchor,
+            eyebrow,
+            title,
+            description,
+            order,
+            "projects": projects[] { title, summary, "details": details[] { label, value }, order }
+          }
+        }
+      `),
+      client.fetch(`
         *[_type == "projectTheme"] | order(order asc) {
           anchor,
           eyebrow,
@@ -127,6 +161,24 @@ export async function getPreviewData() {
           description,
           order,
           "projects": projects[] { title, summary, "details": details[] { label, value } }
+        }
+      `),
+      client.fetch(`
+        *[_type == "publicationsPage"][0] {
+          hero {
+            eyebrow,
+            title,
+            description,
+            "actions": actions[] { label, url, style, newTab, download }
+          },
+          "publications": publications[] {
+            title,
+            summary,
+            year,
+            "doiUrl": doiUrl,
+            topics,
+            order
+          }
         }
       `),
       client.fetch(`
@@ -140,6 +192,24 @@ export async function getPreviewData() {
         }
       `),
       client.fetch(`
+        *[_type == "presentationsPage"][0] {
+          hero { eyebrow, title, description },
+          summary {
+            eyebrow,
+            title,
+            description,
+            "actions": actions[] { label, url, style, newTab, download }
+          },
+          "sections": sections[] {
+            eyebrow,
+            title,
+            layout,
+            order,
+            "items": items[] { year, title, venue, order }
+          }
+        }
+      `),
+      client.fetch(`
         *[_type == "presentationSection"] | order(order asc) {
           eyebrow,
           title,
@@ -150,6 +220,10 @@ export async function getPreviewData() {
       `),
       client.fetch(`
         *[_type == "expertisePage"][0] {
+          hero { eyebrow, title, description },
+          profileSection { eyebrow, title },
+          scholarlySection { eyebrow, title, reviewTitle },
+          credentialSection { eyebrow, title },
           "skills": skills[] { icon, title, description },
           "profiles": profiles[] { title, "items": items[] { date, title, description } },
           "scholarly": scholarly[] { label, title, description, tags },
@@ -162,6 +236,23 @@ export async function getPreviewData() {
           hero,
           summary,
           "positions": positions[] { date, institution, role, description, coursesLabel, courses, featured }
+        }
+      `),
+      client.fetch(`
+        *[_type == "recognitionPage"][0] {
+          hero { eyebrow, title, description },
+          summary { eyebrow, title, description },
+          "sections": sections[] {
+            anchor,
+            eyebrow,
+            title,
+            layout,
+            open,
+            compact,
+            order,
+            "items": items[] { date, title, description, tags, order },
+            "cards": cards[] { title, order, "bullets": bullets[] { date, text, order } }
+          }
         }
       `),
       client.fetch(`
@@ -186,11 +277,34 @@ export async function getPreviewData() {
       footerLinks: settings?.footerLinks?.length ? settings.footerLinks : staticSettings.footerLinks || defaultSettings.footerLinks,
     },
     home: home || staticHome,
-    projectThemes: projectThemes?.length ? projectThemes : staticProjectThemes,
-    publications: publications?.length ? publications : staticPublications,
-    presentationSections: presentationSections?.length ? presentationSections : staticPresentationSections,
-    expertise: expertise || staticExpertise,
+    projectsPage: projectsPage || staticProjectsPage,
+    projectThemes: projectsPage?.themes?.length ? projectsPage.themes : projectThemes?.length ? projectThemes : staticProjectThemes,
+    publicationsPage: publicationsPage || staticPublicationsPage,
+    publications: publicationsPage?.publications?.length
+      ? publicationsPage.publications
+      : publications?.length
+        ? publications
+        : staticPublications,
+    presentationsPage: presentationsPage || staticPresentationsPage,
+    presentationSections: presentationsPage?.sections?.length
+      ? presentationsPage.sections
+      : presentationSections?.length
+        ? presentationSections
+        : staticPresentationSections,
+    expertise: {
+      ...staticExpertise,
+      ...(expertise || {}),
+      hero: expertise?.hero || staticExpertise.hero,
+      profileSection: expertise?.profileSection || staticExpertise.profileSection,
+      scholarlySection: expertise?.scholarlySection || staticExpertise.scholarlySection,
+      credentialSection: expertise?.credentialSection || staticExpertise.credentialSection,
+    },
     teaching: teaching || staticTeaching,
-    recognitionSections: recognitionSections?.length ? recognitionSections : staticRecognitionSections,
+    recognitionPage: recognitionPage || staticRecognitionPage,
+    recognitionSections: recognitionPage?.sections?.length
+      ? recognitionPage.sections
+      : recognitionSections?.length
+        ? recognitionSections
+        : staticRecognitionSections,
   }
 }

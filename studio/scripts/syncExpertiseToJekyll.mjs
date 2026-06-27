@@ -18,6 +18,10 @@ const client = createClient({
 
 const expertise = await client.fetch(`
   *[_type == "expertisePage"][0] {
+    hero { eyebrow, title, description },
+    profileSection { eyebrow, title },
+    scholarlySection { eyebrow, title, reviewTitle },
+    credentialSection { eyebrow, title },
     "skills": skills[] {
       icon,
       title,
@@ -53,7 +57,30 @@ if (!expertise) {
   )
 }
 
+const output = {
+  ...expertise,
+  hero: expertise.hero || {
+    eyebrow: 'Research Profile',
+    title: 'Training and expertise',
+    description:
+      "A concise view of Dr. Cash's education, research roles, dissertation and thesis work, methodological strengths, credentials, and scholarly service",
+  },
+  profileSection: expertise.profileSection || {
+    eyebrow: 'Training and Experience',
+    title: 'Education and research roles',
+  },
+  scholarlySection: expertise.scholarlySection || {
+    eyebrow: 'Scholarly Foundations',
+    title: 'Dissertation, thesis, and manuscript review',
+    reviewTitle: 'Manuscript review',
+  },
+  credentialSection: expertise.credentialSection || {
+    eyebrow: 'Credentials',
+    title: 'Licenses and certifications',
+  },
+}
+
 await fs.mkdir(path.dirname(outputPath), {recursive: true})
-await fs.writeFile(outputPath, `${JSON.stringify(expertise, null, 2)}\n`)
+await fs.writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`)
 
 console.log(`Synced expertise page data to ${outputPath}`)

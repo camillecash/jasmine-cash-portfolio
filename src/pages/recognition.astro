@@ -1,14 +1,15 @@
 ---
 export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { recognitionSections } from '../content';
+import { recognitionPage, recognitionSections } from '../content';
+const content = recognitionPage;
 ---
 <BaseLayout title="Recognition" description="Selected grants, honors, leadership roles, service activities, and professional contributions for Jasmine J. Cash." current="recognition" path="recognition.html">
   <main>
     <section class="page-hero recognition-hero">
-      <p class="eyebrow">Recognition</p>
-      <h1>Recognition</h1>
-      <p class="hero-copy">Selected grants, honors, leadership roles, service activities, and professional contributions</p>
+      <p class="eyebrow">{content.hero.eyebrow}</p>
+      <h1>{content.hero.title}</h1>
+      <p class="hero-copy">{content.hero.description}</p>
     </section>
 
     <nav class="recognition-overview" aria-label="Recognition sections">
@@ -23,9 +24,9 @@ import { recognitionSections } from '../content';
 
     <section class="page-main recognition-layout">
       <aside class="recognition-summary">
-        <p class="eyebrow">At a Glance</p>
-        <h2>Funding, leadership, and scholarly service</h2>
-        <p>Dr. Cash's recognition reflects an emerging independent research program in stroke recovery, neuromodulation, rehabilitation science, and clinical research methods.</p>
+        <p class="eyebrow">{content.summary.eyebrow}</p>
+        <h2>{content.summary.title}</h2>
+        <p>{content.summary.description}</p>
       </aside>
 
       <div class="recognition-sections">

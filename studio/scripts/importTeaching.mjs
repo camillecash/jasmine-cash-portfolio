@@ -32,6 +32,12 @@ function keyFrom(parts) {
 
 const teaching = JSON.parse(await fs.readFile(inputPath, 'utf8'))
 
+const hero = {
+  ...teaching.hero,
+  description: teaching.hero?.description || teaching.hero?.paragraphs?.join(' '),
+}
+delete hero.paragraphs
+
 const positions = (teaching.positions || []).map((position) => ({
   ...position,
   _key: keyFrom(['teaching-position', position.order, position.institution, position.role]),
@@ -40,7 +46,7 @@ const positions = (teaching.positions || []).map((position) => ({
 const document = {
   _id: 'teaching-page',
   _type: 'teachingPage',
-  hero: teaching.hero,
+  hero,
   summary: teaching.summary,
   positions,
 }

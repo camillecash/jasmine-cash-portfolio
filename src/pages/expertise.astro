@@ -3,13 +3,14 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import IconMark from '../components/IconMark.astro';
 import { expertise } from '../content';
+const content = expertise;
 ---
 <BaseLayout title="Training and Expertise" description="Research training, expertise, education, credentials, and scholarly foundations for Jasmine J. Cash, PhD, CSCS." current="expertise" path="expertise.html">
   <main>
     <section class="page-hero">
-      <p class="eyebrow">Research Profile</p>
-      <h1>Training and expertise</h1>
-      <p class="hero-copy">A concise view of Dr. Cash's education, research roles, dissertation and thesis work, methodological strengths, credentials, and scholarly service</p>
+      <p class="eyebrow">{content.hero.eyebrow}</p>
+      <h1>{content.hero.title}</h1>
+      <p class="hero-copy">{content.hero.description}</p>
     </section>
 
     <section class="page-main skill-grid">
@@ -23,7 +24,7 @@ import { expertise } from '../content';
     </section>
 
     <section class="section profile-section">
-      <div class="section-heading"><p class="eyebrow">Training and Experience</p><h2>Education and research roles</h2></div>
+      <div class="section-heading"><p class="eyebrow">{content.profileSection.eyebrow}</p><h2>{content.profileSection.title}</h2></div>
       <div class="profile-grid">
         {[...(expertise.profiles || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((profile) => (
           <article class="profile-card">
@@ -39,7 +40,7 @@ import { expertise } from '../content';
     </section>
 
     <section class="section scholarly-section">
-      <div class="section-heading"><p class="eyebrow">Scholarly Foundations</p><h2>Dissertation, thesis, and manuscript review</h2></div>
+      <div class="section-heading"><p class="eyebrow">{content.scholarlySection.eyebrow}</p><h2>{content.scholarlySection.title}</h2></div>
       <div class="scholarly-grid">
         {[...(expertise.scholarly || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((item) => (
           <article class="profile-card">
@@ -48,14 +49,14 @@ import { expertise } from '../content';
           </article>
         ))}
         <article class="profile-card review-card">
-          <h3>Manuscript review</h3>
+          <h3>{content.scholarlySection.reviewTitle}</h3>
           <ul class="recognition-bullets">{expertise.reviewJournals?.map((journal) => <li>{journal}</li>)}</ul>
         </article>
       </div>
     </section>
 
     <section class="section credential-section">
-      <div class="section-heading"><p class="eyebrow">Credentials</p><h2>Licenses and certifications</h2></div>
+      <div class="section-heading"><p class="eyebrow">{content.credentialSection.eyebrow}</p><h2>{content.credentialSection.title}</h2></div>
       <div class="credential-grid">
         {[...(expertise.credentials || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((credential) => (
           <article class="credential-card">

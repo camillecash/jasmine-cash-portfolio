@@ -1,0 +1,95 @@
+{
+  "hero": {
+    "actions": [
+      {
+        "download": false,
+        "label": "Google Scholar",
+        "newTab": true,
+        "style": "primary",
+        "url": "https://scholar.google.com/citations?user=A7vh1zEAAAAJ&hl=en&oi=ao"
+      }
+    ],
+    "description": "Peer-reviewed publications in rehabilitation measurement, neurophysiology, neuromodulation, biomechanics, and stroke recovery",
+    "eyebrow": "Peer-Reviewed Work",
+    "title": "Publications"
+  },
+  "publications": [
+    {
+      "doiUrl": "https://doi.org/10.1016/j.arrct.2025.100583",
+      "order": 1,
+      "summary": "Evaluates the measurement properties of the Functional Balance Ability Measure across subacute neurologic diagnoses, supporting its use as a rehabilitation outcome tool",
+      "title": "Measurement Properties of the Functional Balance Ability Measure Across Subacute Neurologic Diagnoses",
+      "topics": [
+        "Behavioral Outcomes",
+        "Behavioral Outcomes Research"
+      ],
+      "year": 2026
+    },
+    {
+      "doiUrl": "https://doi.org/10.1016/j.arrct.2023.100296",
+      "order": 2,
+      "summary": "Introduces a measure of balance designed to span a broad range of functional mobility in persons post-stroke",
+      "title": "The Functional Balance Ability Measure",
+      "topics": [
+        "Stroke Recovery",
+        "Behavioral Outcomes Research"
+      ],
+      "year": 2023
+    },
+    {
+      "doiUrl": "https://doi.org/10.3390/jcm12185993",
+      "order": 3,
+      "summary": "Examines how voluntary activation affects lower-extremity motor threshold responses, informing neurophysiological assessment approaches",
+      "title": "Systematic Evaluation of the Effects of Voluntary Activation on Lower Extremity Motor Thresholds",
+      "topics": [
+        "Neurophysiology",
+        "Neuroplasticity & Neuromodulation"
+      ],
+      "year": 2023
+    },
+    {
+      "doiUrl": "https://doi.org/10.1016/j.ptsp.2022.12.001",
+      "order": 4,
+      "summary": "Studies neural excitability and functional status after neuromuscular electrical stimulation in patients with chronic ankle instability",
+      "title": "The Effects of Neuromuscular Electrical Stimulation to the Ankle Pronators",
+      "topics": [
+        "Neuromodulation",
+        "Neuroplasticity & Neuromodulation"
+      ],
+      "year": 2023
+    },
+    {
+      "doiUrl": "https://doi.org/10.1016/j.gaitpost.2022.02.005",
+      "order": 5,
+      "summary": "Investigates how short-term ankle immobilization affects neural excitability and lower-extremity kinematics",
+      "title": "The Effects of 72 Hours of Dynamic Ankle Immobilization",
+      "topics": [
+        "Biomechanics",
+        "Behavioral Outcomes Research"
+      ],
+      "year": 2022
+    },
+    {
+      "doiUrl": "https://doi.org/10.3791/62601",
+      "order": 6,
+      "summary": "Describes a protocol for assessing lower-extremity neurophysiology in standing after stroke",
+      "title": "Standing Neurophysiological Assessment of Lower Extremity Muscles Post-Stroke",
+      "topics": [
+        "Neurophysiology",
+        "Neuroplasticity & Neuromodulation"
+      ],
+      "year": 2021
+    },
+    {
+      "doiUrl": "https://doi.org/10.1016/j.neulet.2021.135884",
+      "order": 7,
+      "summary": "Compares motor evoked potential amplitude and latency approaches for lower-extremity hotspot identification after stroke",
+      "title": "Comparing Cortico-Motor Hotspot Identification Methods in the Lower Extremities Post-Stroke",
+      "topics": [
+        "Stroke Recovery",
+        "Neuroplasticity & Neuromodulation"
+      ],
+      "year": 2021
+    }
+  ]
+}
