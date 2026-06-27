@@ -16,7 +16,6 @@
             "value": "Clinical assessment, neurophysiological testing, statistical modeling, reproducible analysis workflows"
           }
         ],
-        "order": 1,
         "summary": "NIH-funded work examining how obesity may limit brain health and influence recovery after stroke",
         "title": "Obesity, brain health, and stroke recovery"
       },
@@ -27,7 +26,6 @@
             "value": "Neuroimaging-informed measures, mobility testing, statistical analysis, ECG, exploratory multimodal analysis"
           }
         ],
-        "order": 2,
         "summary": "Research exploring associations between central autonomic network integrity and mobility performance after stroke",
         "title": "Dysautonomia and chronic stroke"
       }
@@ -51,7 +49,6 @@
             "value": "Transcranial magnetic stimulation, sensory augmentation, paired associative stimulation"
           }
         ],
-        "order": 1,
         "summary": "Dissertation work characterizing lower-extremity neurophysiological responses to sensory augmentation in chronic stroke, alongside studies evaluating individualized paired associative stimulation as a tool to assay sensorimotor plasticity in healthy adults and people with chronic stroke",
         "title": "Sensory motor integration & plasticity"
       },
@@ -66,7 +63,6 @@
             "value": "TMS, lower-extremity motor threshold assessment, neuronavigation"
           }
         ],
-        "order": 2,
         "summary": "Work focused on lower-extremity motor threshold assessment, corticomotor excitability, and neuronavigated TMS methods that support individualized neuromodulation research after stroke",
         "title": "Lower-extremity neurophysiology"
       }
@@ -90,7 +86,6 @@
             "value": "Psychometric assessment, measurement validation, rehabilitation outcomes analysis"
           }
         ],
-        "order": 1,
         "summary": "Development and validation of a balance measure designed to capture ability across the spectrum of functional mobility after stroke and other neurologic diagnoses",
         "title": "Functional Balance Ability Measure"
       },
@@ -101,7 +96,6 @@
             "value": "Gait event detection, observational analysis, quantitative movement assessment"
           }
         ],
-        "order": 2,
         "summary": "Work comparing observational gait analysis with quantitative methods for individuals with severe post-stroke gait impairment",
         "title": "Gait analysis in severe post-stroke hemiparesis"
       },
@@ -116,7 +110,6 @@
             "value": "Biomechanics, kinematic analysis, kinetic analysis"
           }
         ],
-        "order": 3,
         "summary": "Research examining ankle angular velocity, acceleration, and other movement variables as reliable measures related to post-injury clinical outcomes",
         "title": "Lower-extremity biomechanics and clinical outcomes"
       }

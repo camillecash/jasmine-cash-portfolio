@@ -7,19 +7,19 @@
   "footerName": "Jasmine J. Cash, PhD, CSCS",
   "footerLinks": [
     {
+      "download": false,
       "label": "LinkedIn",
-      "url": "https://www.linkedin.com/in/jasmine-cash/",
-      "download": false
+      "url": "https://www.linkedin.com/in/jasmine-cash/"
     },
     {
+      "download": false,
       "label": "GitHub",
-      "url": "https://github.com/jasminecash",
-      "download": false
+      "url": "https://github.com/jasminecash"
     },
     {
+      "download": true,
       "label": "CV",
-      "url": "assets/cv.pdf",
-      "download": true
+      "url": "assets/cv.pdf"
     }
   ]
 }

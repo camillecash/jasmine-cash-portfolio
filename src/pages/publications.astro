@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { publications } from '../content';
+---
+<BaseLayout title="Publications" description="Selected peer-reviewed publications by Jasmine J. Cash in rehabilitation measurement, neurophysiology, neuromodulation, biomechanics, and stroke recovery." current="publications" path="publications.html">
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Peer-Reviewed Work</p>
+      <h1>Publications</h1>
+      <p class="hero-copy">Peer-reviewed publications in rehabilitation measurement, neurophysiology, neuromodulation, biomechanics, and stroke recovery</p>
+      <div class="hero-actions">
+        <a class="button" href="https://scholar.google.com/citations?user=A7vh1zEAAAAJ&hl=en&oi=ao" target="_blank" rel="noreferrer">Google Scholar</a>
+      </div>
+    </section>
+
+    <section class="page-main publication-list">
+      {publications.map((publication) => (
+        <article class="card publication-item">
+          <div>
+            <h3>{publication.title}</h3>
+            <p>{publication.summary}</p>
+            <div class="meta-list">
+              {publication.doiUrl && <a class="pill" href={publication.doiUrl} target="_blank" rel="noreferrer">DOI</a>}
+              {publication.topics?.map((topic) => <span class="pill">{topic}</span>)}
+            </div>
+          </div>
+          <span class="year">{publication.year}</span>
+        </article>
+      ))}
+    </section>
+  </main>
+</BaseLayout>

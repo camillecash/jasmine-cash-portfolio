@@ -18,7 +18,6 @@
       "description": "Dr. Cash teaches undergraduate anatomy and physiology coursework with an emphasis on clarity, applied learning, and helping students build a strong foundation for future clinical, allied health, and research-oriented work.",
       "featured": true,
       "institution": "Southeastern College",
-      "order": 1,
       "role": "Adjunct Instructor, Department of General Studies | North Charleston, SC"
     },
     {
@@ -30,7 +29,6 @@
       "description": "Dr. Cash taught evidence-based practice content for occupational therapy students, supporting students as they developed skills for evaluating research and applying evidence to rehabilitation practice.",
       "featured": false,
       "institution": "Medical University of South Carolina",
-      "order": 2,
       "role": "Adjunct Instructor, Department of Rehabilitation Sciences | Charleston, SC"
     },
     {
@@ -43,7 +41,6 @@
       "description": "As a guest lecturer, Dr. Cash introduces students to principles of neuromodulation within applied physiology and nutrition, connecting neurophysiological concepts to rehabilitation science and clinical recovery.",
       "featured": false,
       "institution": "Medical University of South Carolina",
-      "order": 3,
       "role": "Guest Lecturer, Department of Rehabilitation Sciences | Charleston, SC"
     }
   ],

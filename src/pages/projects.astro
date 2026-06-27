@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projectThemes } from '../content';
+---
+<BaseLayout title="Projects" description="Research projects by Jasmine J. Cash across brain-body interactions, neuromodulation, and rehabilitation outcomes." current="projects" path="projects.html">
+  <main>
+    <section class="page-hero projects-hero">
+      <p class="eyebrow">Research Portfolio</p>
+      <h1>Projects</h1>
+      <p class="hero-copy">Dr. Cash's projects span three connected themes: brain-body interactions in recovery, neuroplasticity and neuromodulation, and behavioral outcomes research.</p>
+    </section>
+
+    <nav class="project-overview" aria-label="Project themes">
+      {projectThemes.map((theme) => (
+        <a href={`#${theme.anchor}`}>
+          <span class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 16v-4m4 4V8m4 8v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <span class="overview-title">{theme.title}</span>
+          <span class="overview-arrow" aria-hidden="true">-&gt;</span>
+        </a>
+      ))}
+    </nav>
+
+    <section class="page-main project-sections">
+      {projectThemes.map((theme) => (
+        <section class="project-theme" id={theme.anchor}>
+          <div class="section-heading">
+            <p class="eyebrow">{theme.eyebrow}</p>
+            <h2>{theme.title}</h2>
+            <p>{theme.description}</p>
+          </div>
+          <div class="project-grid">
+            {[...(theme.projects || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((project) => (
+              <article class="card project-card">
+                <h3>{project.title}</h3>
+                <p>{project.summary}</p>
+                {project.details?.length > 0 && (
+                  <dl>
+                    {project.details.map((detail) => (
+                      <div><dt>{detail.label}</dt><dd>{detail.value}</dd></div>
+                    ))}
+                  </dl>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </section>
+  </main>
+</BaseLayout>

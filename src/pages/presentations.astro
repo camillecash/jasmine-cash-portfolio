@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { presentationSections } from '../content';
+---
+<BaseLayout title="Presentations" description="Selected conference and invited presentations by Jasmine J. Cash on stroke recovery, neuromodulation, and rehabilitation outcomes." current="presentations" path="presentations.html">
+  <main>
+    <section class="page-hero presentations-hero">
+      <p class="eyebrow">Conference and Invited Talks</p>
+      <h1>Presentations</h1>
+      <p class="hero-copy">Selected national, international, and invited presentations on stroke recovery, neuromodulation, rehabilitation outcomes, and brain-body interactions</p>
+    </section>
+
+    <section class="page-main presentations-layout">
+      <aside class="presentations-summary">
+        <p class="eyebrow">Selected Highlights</p>
+        <h2>Disseminating research across rehabilitation, neuroscience, and movement science communities</h2>
+        <p>These selections emphasize recent and representative presentations. Additional abstracts are available in Dr. Cash's CV.</p>
+        <div class="hero-actions"><a class="button small secondary" href="assets/cv.pdf" download>Download CV</a></div>
+      </aside>
+
+      <div class="presentation-sections">
+        {presentationSections.map((section) => (
+          <section class="presentation-section">
+            <div class="section-heading">
+              <p class="eyebrow">{section.eyebrow}</p>
+              <h2>{section.title}</h2>
+            </div>
+            {section.layout === 'abstractStrip' ? (
+              <div class="abstract-strip" aria-label={section.eyebrow}>
+                {[...(section.items || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((item) => (
+                  <article><span class="recognition-date">{item.year}</span><h3>{item.title}</h3><p>{item.venue}</p></article>
+                ))}
+              </div>
+            ) : (
+              <div class={`presentation-list${section.layout === 'compact' ? ' compact' : ''}`}>
+                {[...(section.items || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((item) => (
+                  <article class="presentation-item"><span class="recognition-date">{item.year}</span><h3>{item.title}</h3><p>{item.venue}</p></article>
+                ))}
+              </div>
+            )}
+          </section>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

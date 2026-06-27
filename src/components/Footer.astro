@@ -1,0 +1,15 @@
+---
+import { settings, siteTitle } from '../content';
+const footerName = settings.footerName || siteTitle;
+const footerLinks = settings.footerLinks || [];
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>{footerName}</span>
+    <div class="social-row">
+      {footerLinks.map((link) => (
+        <a href={link.url} target={link.download ? undefined : '_blank'} rel={link.download ? undefined : 'noreferrer'} download={link.download ? true : undefined}>{link.label}</a>
+      ))}
+    </div>
+  </div>
+</footer>

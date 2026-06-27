@@ -3,7 +3,6 @@
     {
       "date": "2026",
       "issuer": "National Strength and Conditioning Association",
-      "order": 1,
       "tags": [
         "CSCS",
         "Exercise Science"
@@ -13,7 +12,6 @@
     {
       "date": "Mar 2026",
       "issuer": "Compass Training and Mentoring Program at Washington University School of Medicine in St. Louis",
-      "order": 2,
       "tags": [
         "Leadership",
         "Career Development"
@@ -23,7 +21,6 @@
     {
       "date": "May 2024",
       "issuer": "CITI Program",
-      "order": 3,
       "tags": [
         "Clinical Research",
         "GCP"
@@ -33,7 +30,6 @@
     {
       "date": "May 2023",
       "issuer": "Medical University of South Carolina",
-      "order": 4,
       "tags": [
         "Research Ethics",
         "Clinical Research"
@@ -43,7 +39,6 @@
     {
       "date": "Feb 2023",
       "issuer": "CITI Program",
-      "order": 5,
       "tags": [
         "Research Ethics",
         "Clinical Research"
@@ -53,7 +48,6 @@
     {
       "date": "Jun 2022",
       "issuer": "IBM",
-      "order": 6,
       "tags": [
         "Python",
         "Data Science"
@@ -63,7 +57,6 @@
     {
       "date": "May 2022",
       "issuer": "IBM",
-      "order": 7,
       "tags": [
         "Python",
         "Data Science"
@@ -73,7 +66,6 @@
     {
       "date": "Certification",
       "issuer": "American Red Cross",
-      "order": 8,
       "tags": [
         "First Aid",
         "CPR/AED"
@@ -87,23 +79,19 @@
         {
           "date": "2020-2024",
           "description": "Medical University of South Carolina",
-          "order": 1,
           "title": "PhD, Health & Rehabilitation Sciences"
         },
         {
           "date": "2018-2020",
           "description": "Appalachian State University",
-          "order": 2,
           "title": "MS, Exercise Science"
         },
         {
           "date": "2013-2017",
           "description": "University of North Carolina at Chapel Hill, minor in Neuroscience",
-          "order": 3,
           "title": "BA, Exercise & Sport Science"
         }
       ],
-      "order": 1,
       "title": "Education"
     },
     {
@@ -111,23 +99,19 @@
         {
           "date": "2024-Present",
           "description": "Medical University of South Carolina, Charleston, SC",
-          "order": 1,
           "title": "Postdoctoral Scholar"
         },
         {
           "date": "2020-2024",
           "description": "Medical University of South Carolina, Charleston, SC",
-          "order": 2,
           "title": "Graduate Research Assistant"
         },
         {
           "date": "2018-2020",
           "description": "Appalachian State University, Boone, NC",
-          "order": 3,
           "title": "Graduate Research Assistant"
         }
       ],
-      "order": 2,
       "title": "Research experience"
     }
   ],
@@ -142,7 +126,6 @@
     {
       "description": "PhD dissertation at the Medical University of South Carolina",
       "label": "Dissertation",
-      "order": 1,
       "tags": [
         "Stroke Recovery",
         "Neurophysiology"
@@ -152,7 +135,6 @@
     {
       "description": "MS thesis at Appalachian State University",
       "label": "Thesis",
-      "order": 2,
       "tags": [
         "Exercise Science",
         "Neural Excitability"
@@ -164,37 +146,31 @@
     {
       "description": "Lower-extremity neurophysiological assessment, corticomotor excitability, and sensorimotor recovery after stroke",
       "icon": "chart",
-      "order": 1,
       "title": "Neurophysiology"
     },
     {
       "description": "Transcranial magnetic stimulation, paired associative stimulation, rTMS, and sensory augmentation approaches",
       "icon": "message",
-      "order": 2,
       "title": "Neuromodulation"
     },
     {
       "description": "Outcome measure development, validation, and measurement properties for rehabilitation populations",
       "icon": "measure",
-      "order": 3,
       "title": "Psychometric assessment"
     },
     {
       "description": "Exercise science, physical function, biomechanics, and rehabilitation-focused intervention research",
       "icon": "grid",
-      "order": 4,
       "title": "Exercise interventions"
     },
     {
       "description": "Clinical research coordination, data management, statistical analysis, and reproducible research workflows",
       "icon": "data",
-      "order": 5,
       "title": "Data and analysis"
     },
     {
       "description": "Peer-reviewed manuscripts, conference presentations, grant materials, teaching, and interdisciplinary collaboration",
       "icon": "person",
-      "order": 6,
       "title": "Scientific communication"
     }
   ]

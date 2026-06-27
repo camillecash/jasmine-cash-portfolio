@@ -6,14 +6,14 @@
   "hero": {
     "actions": [
       {
-        "label": "Selected publications",
-        "style": "secondary",
-        "url": "publications.html"
-      },
-      {
         "label": "Research projects",
         "style": "primary",
         "url": "projects.html"
+      },
+      {
+        "label": "Selected publications",
+        "style": "secondary",
+        "url": "publications.html"
       }
     ],
     "description": "Postdoctoral scholar studying neurophysiology, neuromodulation, and functional outcomes to improve stroke recovery and physical function",

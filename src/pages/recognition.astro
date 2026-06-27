@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { recognitionSections } from '../content';
+---
+<BaseLayout title="Recognition" description="Selected grants, honors, leadership roles, service activities, and professional contributions for Jasmine J. Cash." current="recognition" path="recognition.html">
+  <main>
+    <section class="page-hero recognition-hero">
+      <p class="eyebrow">Recognition</p>
+      <h1>Recognition</h1>
+      <p class="hero-copy">Selected grants, honors, leadership roles, service activities, and professional contributions</p>
+    </section>
+
+    <nav class="recognition-overview" aria-label="Recognition sections">
+      {recognitionSections.map((section) => (
+        <a href={`#${section.anchor}`} data-recognition-target={section.anchor}>
+          <span class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14M5 12h14M5 17h9M7 4v16m10-16v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <span class="overview-title">{section.eyebrow}</span>
+          <span class="overview-arrow" aria-hidden="true">-&gt;</span>
+        </a>
+      ))}
+    </nav>
+
+    <section class="page-main recognition-layout">
+      <aside class="recognition-summary">
+        <p class="eyebrow">At a Glance</p>
+        <h2>Funding, leadership, and scholarly service</h2>
+        <p>Dr. Cash's recognition reflects an emerging independent research program in stroke recovery, neuromodulation, rehabilitation science, and clinical research methods.</p>
+      </aside>
+
+      <div class="recognition-sections">
+        {recognitionSections.map((section) => (
+          <details class="recognition-section" id={section.anchor} open={section.open ? true : undefined}>
+            <summary class="section-heading"><p class="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></summary>
+            {section.layout === 'list' ? (
+              <div class={`recognition-list${section.compact ? ' compact' : ''}`}>
+                {[...(section.items || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((item) => (
+                  <article class="recognition-item">
+                    <span class="recognition-date">{item.date}</span><h3>{item.title}</h3><p>{item.description}</p>
+                    {item.tags?.length > 0 && <div class="meta-list">{item.tags.map((tag) => <span class="pill">{tag}</span>)}</div>}
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div class="recognition-grid-wide">
+                {[...(section.cards || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((card) => (
+                  <article class="recognition-card">
+                    <h3>{card.title}</h3>
+                    <ul class="recognition-bullets">
+                      {[...(card.bullets || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((bullet) => (
+                        <li>{bullet.date && <strong>{bullet.date}: </strong>}{bullet.text}</li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            )}
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

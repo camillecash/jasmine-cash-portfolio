@@ -1,0 +1,33 @@
+---
+import { siteTitle, siteTagline } from '../content';
+
+const { current = '' } = Astro.props;
+const links = [
+  ['Home', 'index.html', 'home'],
+  ['Projects', 'projects.html', 'projects'],
+  ['Expertise', 'expertise.html', 'expertise'],
+  ['Publications', 'publications.html', 'publications'],
+  ['Presentations', 'presentations.html', 'presentations'],
+  ['Teaching', 'teaching.html', 'teaching'],
+  ['Recognition', 'recognition.html', 'recognition']
+];
+---
+<header class="site-header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="index.html">
+      <strong>{siteTitle}</strong>
+      <span>{siteTagline}</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span class="sr-only">Toggle navigation</span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="primary-menu">
+      {links.map(([label, href, key]) => (
+        <a href={href} aria-current={current === key ? 'page' : undefined}>{label}</a>
+      ))}
+    </div>
+  </nav>
+</header>

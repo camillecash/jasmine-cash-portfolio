@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { home, siteTitle, siteDescription } from '../content';
+---
+<BaseLayout title={siteTitle} description={siteDescription} current="home" path="">
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">{home.hero.eyebrow}</p>
+        <h1>{home.hero.title}</h1>
+        <p class="hero-copy">{home.hero.description}</p>
+        <div class="hero-actions">
+          {home.hero.actions.map((action) => (
+            <a class={`button${action.style === 'secondary' ? ' secondary' : ''}`} href={action.url}>{action.label}</a>
+          ))}
+        </div>
+        <div class="social-row" aria-label="Professional links">
+          {home.hero.professionalLinks.map((link) => (
+            <a href={link.url} target={link.download ? undefined : '_blank'} rel={link.download ? undefined : 'noreferrer'} download={link.download ? true : undefined}>{link.label}</a>
+          ))}
+        </div>
+      </div>
+      <div class="portrait-panel">
+        <img class="portrait" src={home.hero.portrait.image} alt={home.hero.portrait.alt} />
+        <div class="quick-note">
+          <strong>{home.hero.portrait.noteTitle}</strong>
+          <span>{home.hero.portrait.noteText}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="section about-section">
+        <p class="eyebrow">{home.about.eyebrow}</p>
+        <p class="section-intro">{home.about.description}</p>
+      </div>
+    </section>
+
+    <section class="section interest-section">
+      <p class="eyebrow">{home.interests.eyebrow}</p>
+      <div class="interest-strip" aria-label="Research interests">
+        {home.interests.items.map((interest) => <span>{interest}</span>)}
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">{home.researchThemes.eyebrow}</p>
+      <h2>{home.researchThemes.title}</h2>
+      <div class="research-list" aria-label="Research areas">
+        {home.researchThemes.items.map((theme) => (
+          <article class="card tint">
+            <h3>{theme.title}</h3>
+            <p>{theme.description}</p>
+            <div class="meta-list">
+              <a class="pill" href={theme.linkUrl}>{theme.linkLabel}</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
