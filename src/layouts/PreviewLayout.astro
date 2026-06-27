@@ -1,0 +1,71 @@
+---
+import '../styles.css'
+const {
+  settings,
+  title = settings.siteTitle,
+  description = settings.siteDescription,
+  current = '',
+  path = '',
+} = Astro.props
+
+const siteTitle = settings.siteTitle || 'Jasmine J. Cash, PhD, CSCS'
+const siteTagline = settings.siteTagline || 'Clinical researcher and postdoctoral scholar'
+const siteUrl = settings.siteUrl || 'https://jasminecash.com'
+const socialImage = settings.socialImage?.includes('://')
+  ? settings.socialImage
+  : `${siteUrl.replace(/\/$/, '')}/${(settings.socialImage || 'assets/social-preview.png').replace(/^\//, '')}`
+const fullTitle = title === siteTitle ? `${siteTitle} | Draft Preview` : `${title} | ${siteTitle} Draft Preview`
+const canonical = `${siteUrl.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+const links = [
+  ['Home', '/preview/home', 'home'],
+  ['Projects', '/preview/projects', 'projects'],
+  ['Expertise', '/preview/expertise', 'expertise'],
+  ['Publications', '/preview/publications', 'publications'],
+  ['Presentations', '/preview/presentations', 'presentations'],
+  ['Teaching', '/preview/teaching', 'teaching'],
+  ['Recognition', '/preview/recognition', 'recognition'],
+]
+const footerLinks = settings.footerLinks || []
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title === siteTitle ? siteTitle : `${title} | ${siteTitle}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{fullTitle}</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div style="position: sticky; top: 0; z-index: 1000; padding: 0.6rem 1rem; background: #2f2364; color: white; font: 600 0.9rem/1.2 system-ui, sans-serif; text-align: center;">
+      Draft preview — changes here may not be published yet
+    </div>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/preview/home"><strong>{siteTitle}</strong><span>{siteTagline}</span></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+        <div class="nav-links" id="primary-menu">
+          {links.map(([label, href, key]) => <a href={href} aria-current={current === key ? 'page' : undefined}>{label}</a>)}
+        </div>
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>{settings.footerName || siteTitle}</span>
+        <div class="social-row">
+          {footerLinks.map((link) => <a href={link.url} target={link.download ? undefined : '_blank'} rel={link.download ? undefined : 'noreferrer'} download={link.download ? true : undefined}>{link.label}</a>)}
+        </div>
+      </div>
+    </footer>
+    <script is:inline src="/site.js"></script>
+  </body>
+</html>

@@ -10,3 +10,4 @@ studio/dist/
 studio/.sanity/
 dist/
 .astro/
+.wrangler/

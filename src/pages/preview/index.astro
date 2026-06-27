@@ -1,0 +1,7 @@
+---
+export const prerender = false
+import {pageForType} from '../../lib/sanityPreview'
+const type = Astro.url.searchParams.get('type') || ''
+const page = Astro.url.searchParams.get('page') || pageForType(type)
+return Astro.redirect(`/preview/${page}`)
+---

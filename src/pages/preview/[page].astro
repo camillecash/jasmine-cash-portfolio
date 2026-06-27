@@ -1,0 +1,106 @@
+---
+export const prerender = false
+import PreviewLayout from '../../layouts/PreviewLayout.astro'
+import IconMark from '../../components/IconMark.astro'
+import {getPreviewData, previewPages} from '../../lib/sanityPreview'
+
+const page = Astro.params.page || 'home'
+if (!previewPages.has(page)) {
+  return Astro.redirect('/preview/home')
+}
+
+const data = await getPreviewData()
+const {settings, home, projectThemes, publications, presentationSections, expertise, teaching, recognitionSections} = data
+const sortByOrder = (items = []) => [...items].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+const pageTitles = {
+  home: settings.siteTitle,
+  projects: 'Projects',
+  publications: 'Publications',
+  presentations: 'Presentations',
+  expertise: 'Training and Expertise',
+  teaching: 'Teaching',
+  recognition: 'Recognition',
+}
+---
+<PreviewLayout settings={settings} title={pageTitles[page]} description={settings.siteDescription} current={page} path={`${page === 'home' ? '' : `${page}.html`}`}>
+  {page === 'home' && (
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">{home.hero.eyebrow}</p>
+          <h1>{home.hero.title}</h1>
+          <p class="hero-copy">{home.hero.description}</p>
+          <div class="hero-actions">
+            {home.hero.actions?.map((action) => <a class={`button${action.style === 'secondary' ? ' secondary' : ''}`} href={action.url}>{action.label}</a>)}
+          </div>
+          <div class="social-row" aria-label="Professional links">
+            {home.hero.professionalLinks?.map((link) => <a href={link.url} target={link.download ? undefined : '_blank'} rel={link.download ? undefined : 'noreferrer'} download={link.download ? true : undefined}>{link.label}</a>)}
+          </div>
+        </div>
+        <div class="portrait-panel">
+          <img class="portrait" src={home.hero.portrait.image} alt={home.hero.portrait.alt} />
+          <div class="quick-note"><strong>{home.hero.portrait.noteTitle}</strong><span>{home.hero.portrait.noteText}</span></div>
+        </div>
+      </section>
+      <section class="band"><div class="section about-section"><p class="eyebrow">{home.about.eyebrow}</p><p class="section-intro">{home.about.description}</p></div></section>
+      <section class="section interest-section"><p class="eyebrow">{home.interests.eyebrow}</p><div class="interest-strip" aria-label="Research interests">{home.interests.items?.map((interest) => <span>{interest}</span>)}</div></section>
+      <section class="section">
+        <p class="eyebrow">{home.researchThemes.eyebrow}</p><h2>{home.researchThemes.title}</h2>
+        <div class="research-list" aria-label="Research areas">
+          {home.researchThemes.items?.map((theme) => <article class="card tint"><h3>{theme.title}</h3><p>{theme.description}</p><div class="meta-list"><a class="pill" href={theme.linkUrl}>{theme.linkLabel}</a></div></article>)}
+        </div>
+      </section>
+    </main>
+  )}
+
+  {page === 'projects' && (
+    <main>
+      <section class="page-hero projects-hero"><p class="eyebrow">Research Portfolio</p><h1>Projects</h1><p class="hero-copy">Dr. Cash's projects span three connected themes: brain-body interactions in recovery, neuroplasticity and neuromodulation, and behavioral outcomes research.</p></section>
+      <nav class="project-overview" aria-label="Project themes">
+        {projectThemes.map((theme) => <a href={`#${theme.anchor}`}><span class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 16v-4m4 4V8m4 8v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="overview-title">{theme.title}</span><span class="overview-arrow" aria-hidden="true">-&gt;</span></a>)}
+      </nav>
+      <section class="page-main project-sections">
+        {projectThemes.map((theme) => <section class="project-theme" id={theme.anchor}><div class="section-heading"><p class="eyebrow">{theme.eyebrow}</p><h2>{theme.title}</h2><p>{theme.description}</p></div><div class="project-grid">{sortByOrder(theme.projects).map((project) => <article class="card project-card"><h3>{project.title}</h3><p>{project.summary}</p>{project.details?.length > 0 && <dl>{project.details.map((detail) => <div><dt>{detail.label}</dt><dd>{detail.value}</dd></div>)}</dl>}</article>)}</div></section>)}
+      </section>
+    </main>
+  )}
+
+  {page === 'publications' && (
+    <main>
+      <section class="page-hero"><p class="eyebrow">Peer-Reviewed Work</p><h1>Publications</h1><p class="hero-copy">Peer-reviewed publications in rehabilitation measurement, neurophysiology, neuromodulation, biomechanics, and stroke recovery</p><div class="hero-actions"><a class="button" href="https://scholar.google.com/citations?user=A7vh1zEAAAAJ&hl=en&oi=ao" target="_blank" rel="noreferrer">Google Scholar</a></div></section>
+      <section class="page-main publication-list">{publications.map((publication) => <article class="card publication-item"><div><h3>{publication.title}</h3><p>{publication.summary}</p><div class="meta-list">{publication.doiUrl && <a class="pill" href={publication.doiUrl} target="_blank" rel="noreferrer">DOI</a>}{publication.topics?.map((topic) => <span class="pill">{topic}</span>)}</div></div><span class="year">{publication.year}</span></article>)}</section>
+    </main>
+  )}
+
+  {page === 'presentations' && (
+    <main>
+      <section class="page-hero presentations-hero"><p class="eyebrow">Conference and Invited Talks</p><h1>Presentations</h1><p class="hero-copy">Selected national, international, and invited presentations on stroke recovery, neuromodulation, rehabilitation outcomes, and brain-body interactions</p></section>
+      <section class="page-main presentations-layout"><aside class="presentations-summary"><p class="eyebrow">Selected Highlights</p><h2>Disseminating research across rehabilitation, neuroscience, and movement science communities</h2><p>These selections emphasize recent and representative presentations. Additional abstracts are available in Dr. Cash's CV.</p><div class="hero-actions"><a class="button small secondary" href="/assets/cv.pdf" download>Download CV</a></div></aside><div class="presentation-sections">{presentationSections.map((section) => <section class="presentation-section"><div class="section-heading"><p class="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></div>{section.layout === 'abstractStrip' ? <div class="abstract-strip" aria-label={section.eyebrow}>{sortByOrder(section.items).map((item) => <article><span class="recognition-date">{item.year}</span><h3>{item.title}</h3><p>{item.venue}</p></article>)}</div> : <div class={`presentation-list${section.layout === 'compact' ? ' compact' : ''}`}>{sortByOrder(section.items).map((item) => <article class="presentation-item"><span class="recognition-date">{item.year}</span><h3>{item.title}</h3><p>{item.venue}</p></article>)}</div>}</section>)}</div></section>
+    </main>
+  )}
+
+  {page === 'expertise' && (
+    <main>
+      <section class="page-hero"><p class="eyebrow">Research Profile</p><h1>Training and expertise</h1><p class="hero-copy">A concise view of Dr. Cash's education, research roles, dissertation and thesis work, methodological strengths, credentials, and scholarly service</p></section>
+      <section class="page-main skill-grid">{sortByOrder(expertise.skills).map((skill) => <article class="card"><IconMark icon={skill.icon} /><h3>{skill.title}</h3><p>{skill.description}</p></article>)}</section>
+      <section class="section profile-section"><div class="section-heading"><p class="eyebrow">Training and Experience</p><h2>Education and research roles</h2></div><div class="profile-grid">{sortByOrder(expertise.profiles).map((profile) => <article class="profile-card"><h3>{profile.title}</h3><div class="timeline compact-timeline">{sortByOrder(profile.items).map((item) => <article class="timeline-item"><span class="recognition-date">{item.date}</span><h4>{item.title}</h4><p>{item.description}</p></article>)}</div></article>)}</div></section>
+      <section class="section scholarly-section"><div class="section-heading"><p class="eyebrow">Scholarly Foundations</p><h2>Dissertation, thesis, and manuscript review</h2></div><div class="scholarly-grid">{sortByOrder(expertise.scholarly).map((item) => <article class="profile-card"><span class="recognition-date">{item.label}</span><h3>{item.title}</h3><p>{item.description}</p><div class="meta-list">{item.tags?.map((tag) => <span class="pill">{tag}</span>)}</div></article>)}<article class="profile-card review-card"><h3>Manuscript review</h3><ul class="recognition-bullets">{expertise.reviewJournals?.map((journal) => <li>{journal}</li>)}</ul></article></div></section>
+      <section class="section credential-section"><div class="section-heading"><p class="eyebrow">Credentials</p><h2>Licenses and certifications</h2></div><div class="credential-grid">{sortByOrder(expertise.credentials).map((credential) => <article class="credential-card"><span class="recognition-date">{credential.date}</span><h3>{credential.title}</h3><p>{credential.issuer}</p><div class="meta-list">{credential.tags?.map((tag) => <span class="pill">{tag}</span>)}</div></article>)}</div></section>
+    </main>
+  )}
+
+  {page === 'teaching' && (
+    <main>
+      <section class="page-hero teaching-hero"><p class="eyebrow">{teaching.hero.eyebrow}</p><h1>{teaching.hero.title}</h1><p class="hero-copy">{teaching.hero.paragraphs?.join(' ')}</p></section>
+      <section class="page-main teaching-layout"><div class="teaching-summary"><p class="eyebrow">{teaching.summary.eyebrow}</p><h2>{teaching.summary.title}</h2><p>{teaching.summary.description}</p></div><div class="teaching-details">{sortByOrder(teaching.positions).map((position) => <article class={`teaching-card${position.featured ? ' featured' : ''}`}><div><span class="teaching-date">{position.date}</span><h3>{position.institution}</h3><p class="teaching-role">{position.role}</p></div><p>{position.description}</p><div class="course-list" aria-label={position.coursesLabel}>{position.courses?.map((course) => <span>{course}</span>)}</div></article>)}</div></section>
+    </main>
+  )}
+
+  {page === 'recognition' && (
+    <main>
+      <section class="page-hero recognition-hero"><p class="eyebrow">Recognition</p><h1>Recognition</h1><p class="hero-copy">Selected grants, honors, leadership roles, service activities, and professional contributions</p></section>
+      <nav class="recognition-overview" aria-label="Recognition sections">{recognitionSections.map((section) => <a href={`#${section.anchor}`} data-recognition-target={section.anchor}><span class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14M5 12h14M5 17h9M7 4v16m10-16v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="overview-title">{section.eyebrow}</span><span class="overview-arrow" aria-hidden="true">-&gt;</span></a>)}</nav>
+      <section class="page-main recognition-layout"><aside class="recognition-summary"><p class="eyebrow">At a Glance</p><h2>Funding, leadership, and scholarly service</h2><p>Dr. Cash's recognition reflects an emerging independent research program in stroke recovery, neuromodulation, rehabilitation science, and clinical research methods.</p></aside><div class="recognition-sections">{recognitionSections.map((section) => <details class="recognition-section" id={section.anchor} open={section.open ? true : undefined}><summary class="section-heading"><p class="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></summary>{section.layout === 'list' ? <div class={`recognition-list${section.compact ? ' compact' : ''}`}>{sortByOrder(section.items).map((item) => <article class="recognition-item"><span class="recognition-date">{item.date}</span><h3>{item.title}</h3><p>{item.description}</p>{item.tags?.length > 0 && <div class="meta-list">{item.tags.map((tag) => <span class="pill">{tag}</span>)}</div>}</article>)}</div> : <div class="recognition-grid-wide">{sortByOrder(section.cards).map((card) => <article class="recognition-card"><h3>{card.title}</h3><ul class="recognition-bullets">{sortByOrder(card.bullets).map((bullet) => <li>{bullet.date && <strong>{bullet.date}: </strong>}{bullet.text}</li>)}</ul></article>)}</div>}</details>)}</div></section>
+    </main>
+  )}
+</PreviewLayout>
