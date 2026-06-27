@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jasmine-cash-preview",
+  "compatibility_date": "2026-04-15",
+  "main": "./dist/server/entry.mjs",
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist/client"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

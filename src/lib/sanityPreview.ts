@@ -41,7 +41,7 @@ function createDraftClient() {
   const token = getToken()
 
   if (!token) {
-    throw new Error('Missing SANITY_API_READ_TOKEN. Add it as a secret environment variable in Cloudflare Pages.')
+    throw new Error('Missing SANITY_API_READ_TOKEN. Add it as a secret environment variable on the Cloudflare preview Worker.')
   }
 
   return createClient({

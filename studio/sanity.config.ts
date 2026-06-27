@@ -5,7 +5,7 @@ import {visionTool} from '@sanity/vision'
 
 import {schemaTypes} from './schemas'
 
-const previewBaseUrl = 'https://jasminecash.com'
+const previewBaseUrl = 'https://preview.jasminecash.com'
 
 function pageForType(type?: string) {
   const map: Record<string, string> = {
@@ -45,6 +45,7 @@ export default defineConfig({
         initial: `${previewBaseUrl}/preview/home`,
       },
       allowOrigins: [
+        'https://preview.jasminecash.com',
         'https://jasminecash.com',
         'https://www.jasminecash.com',
         'https://jasmine-cash-portfolio.pages.dev',
