@@ -60,6 +60,8 @@ if (!home) {
   )
 }
 
+console.log(`Home hero description from Sanity: ${home.hero?.description}`)
+
 await fs.mkdir(path.dirname(outputPath), {recursive: true})
 await fs.writeFile(outputPath, `${JSON.stringify(home, null, 2)}\n`)
 
