@@ -6,7 +6,7 @@
   "packageManager": "pnpm@11.7.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/copyCloudflareHeaders.mjs",
     "preview": "astro preview",
     "deploy:preview": "pnpm run build && wrangler deploy --config wrangler.preview.jsonc --keep-vars",
     "deploy:preview:dry-run": "pnpm run build && wrangler deploy --config wrangler.preview.jsonc --dry-run --keep-vars"
