@@ -9,6 +9,43 @@ function currentUrl() {
   return `${window.location.pathname}${window.location.search}${window.location.hash}`
 }
 
+const scrollStorageKey = 'jasmine-preview-scroll-position'
+
+function storeScrollPosition() {
+  try {
+    window.sessionStorage.setItem(
+      scrollStorageKey,
+      JSON.stringify({x: window.scrollX, y: window.scrollY})
+    )
+  } catch {
+    // Ignore storage failures. The preview can still refresh without scroll restoration.
+  }
+}
+
+function restoreScrollPosition() {
+  try {
+    const storedPosition = window.sessionStorage.getItem(scrollStorageKey)
+    if (!storedPosition) return
+
+    window.sessionStorage.removeItem(scrollStorageKey)
+    const {x = 0, y = 0} = JSON.parse(storedPosition)
+    let attempts = 0
+
+    const restore = () => {
+      window.scrollTo(x, y)
+      attempts += 1
+
+      if (attempts < 6) {
+        window.setTimeout(restore, 75)
+      }
+    }
+
+    window.requestAnimationFrame(restore)
+  } catch {
+    // Ignore malformed stored values.
+  }
+}
+
 function applyHistoryUpdate(update: Pick<HistoryUpdate, 'type' | 'url'>, currentHref: string) {
   switch (update.type) {
     case 'push':
@@ -27,6 +64,10 @@ export default function SanityVisualEditing() {
   type Navigate = Parameters<HistoryAdapter['subscribe']>[0]
   const navigateRef = useRef<Navigate | undefined>(undefined)
   const lastUrlRef = useRef('')
+
+  useEffect(() => {
+    restoreScrollPosition()
+  }, [])
 
   useEffect(() => {
     const sync = () => {
@@ -89,7 +130,10 @@ export default function SanityVisualEditing() {
       portal
       refresh={() =>
         new Promise<void>((resolve) => {
-          window.location.reload()
+          storeScrollPosition()
+          const nextUrl = new URL(window.location.href)
+          nextUrl.searchParams.set('_previewRefresh', Date.now().toString())
+          window.location.replace(nextUrl)
           resolve()
         })
       }
