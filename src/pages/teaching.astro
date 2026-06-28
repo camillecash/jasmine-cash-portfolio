@@ -20,7 +20,7 @@ const heroCopy = teaching.hero.description || teaching.hero.paragraphs?.join(' '
       </div>
 
       <div class="teaching-details">
-        {[...(teaching.positions || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((position) => (
+        {(teaching.positions || []).map((position) => (
           <article class={`teaching-card${position.featured ? ' featured' : ''}`}>
             <div><span class="teaching-date">{position.date}</span><h3>{position.institution}</h3><p class="teaching-role">{position.role}</p></div>
             <p>{position.description}</p>

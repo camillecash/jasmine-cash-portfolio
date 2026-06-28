@@ -43,13 +43,13 @@ const content = presentationsPage;
             </div>
             {section.layout === 'abstractStrip' ? (
               <div class="abstract-strip" aria-label={section.eyebrow}>
-                {[...(section.items || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((item) => (
+                {(section.items || []).map((item) => (
                   <article><span class="recognition-date">{item.year}</span><h3>{item.title}</h3><p>{item.venue}</p></article>
                 ))}
               </div>
             ) : (
               <div class={`presentation-list${section.layout === 'compact' ? ' compact' : ''}`}>
-                {[...(section.items || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((item) => (
+                {(section.items || []).map((item) => (
                   <article class="presentation-item"><span class="recognition-date">{item.year}</span><h3>{item.title}</h3><p>{item.venue}</p></article>
                 ))}
               </div>

@@ -13,14 +13,16 @@ import teachingData from '../_data/teaching.json';
 
 export const home = homeData;
 export const settings = siteSettingsData;
+const byOrder = (items = []) => [...items].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
 export const projectsPage = projectsPageData;
-export const projectThemes = [...(projectsPageData.themes || projectThemesData)].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+export const projectThemes = projectsPageData.themes || byOrder(projectThemesData);
 export const publicationsPage = publicationsPageData;
-export const publications = [...(publicationsPageData.publications || publicationsData)].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+export const publications = publicationsPageData.publications || byOrder(publicationsData);
 export const presentationsPage = presentationsPageData;
-export const presentationSections = [...(presentationsPageData.sections || presentationSectionsData)].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+export const presentationSections = presentationsPageData.sections || byOrder(presentationSectionsData);
 export const recognitionPage = recognitionPageData;
-export const recognitionSections = [...(recognitionPageData.sections || recognitionSectionsData)].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+export const recognitionSections = recognitionPageData.sections || byOrder(recognitionSectionsData);
 export const expertise = {
   ...expertiseData,
   hero: expertiseData.hero || {

@@ -35,7 +35,7 @@ const content = recognitionPage;
             <summary class="section-heading"><p class="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></summary>
             {section.layout === 'list' ? (
               <div class={`recognition-list${section.compact ? ' compact' : ''}`}>
-                {[...(section.items || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((item) => (
+                {(section.items || []).map((item) => (
                   <article class="recognition-item">
                     <span class="recognition-date">{item.date}</span><h3>{item.title}</h3><p>{item.description}</p>
                     {item.tags?.length > 0 && <div class="meta-list">{item.tags.map((tag) => <span class="pill">{tag}</span>)}</div>}
@@ -44,11 +44,11 @@ const content = recognitionPage;
               </div>
             ) : (
               <div class="recognition-grid-wide">
-                {[...(section.cards || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((card) => (
+                {(section.cards || []).map((card) => (
                   <article class="recognition-card">
                     <h3>{card.title}</h3>
                     <ul class="recognition-bullets">
-                      {[...(card.bullets || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((bullet) => (
+                      {(card.bullets || []).map((bullet) => (
                         <li>{bullet.date && <strong>{bullet.date}: </strong>}{bullet.text}</li>
                       ))}
                     </ul>

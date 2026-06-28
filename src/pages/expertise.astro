@@ -14,7 +14,7 @@ const content = expertise;
     </section>
 
     <section class="page-main skill-grid">
-      {[...(expertise.skills || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((skill) => (
+      {(expertise.skills || []).map((skill) => (
         <article class="card">
           <IconMark icon={skill.icon} />
           <h3>{skill.title}</h3>
@@ -26,11 +26,11 @@ const content = expertise;
     <section class="section profile-section">
       <div class="section-heading"><p class="eyebrow">{content.profileSection.eyebrow}</p><h2>{content.profileSection.title}</h2></div>
       <div class="profile-grid">
-        {[...(expertise.profiles || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((profile) => (
+        {(expertise.profiles || []).map((profile) => (
           <article class="profile-card">
             <h3>{profile.title}</h3>
             <div class="timeline compact-timeline">
-              {[...(profile.items || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((item) => (
+              {(profile.items || []).map((item) => (
                 <article class="timeline-item"><span class="recognition-date">{item.date}</span><h4>{item.title}</h4><p>{item.description}</p></article>
               ))}
             </div>
@@ -42,7 +42,7 @@ const content = expertise;
     <section class="section scholarly-section">
       <div class="section-heading"><p class="eyebrow">{content.scholarlySection.eyebrow}</p><h2>{content.scholarlySection.title}</h2></div>
       <div class="scholarly-grid">
-        {[...(expertise.scholarly || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((item) => (
+        {(expertise.scholarly || []).map((item) => (
           <article class="profile-card">
             <span class="recognition-date">{item.label}</span><h3>{item.title}</h3><p>{item.description}</p>
             <div class="meta-list">{item.tags?.map((tag) => <span class="pill">{tag}</span>)}</div>
@@ -58,7 +58,7 @@ const content = expertise;
     <section class="section credential-section">
       <div class="section-heading"><p class="eyebrow">{content.credentialSection.eyebrow}</p><h2>{content.credentialSection.title}</h2></div>
       <div class="credential-grid">
-        {[...(expertise.credentials || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((credential) => (
+        {(expertise.credentials || []).map((credential) => (
           <article class="credential-card">
             <span class="recognition-date">{credential.date}</span><h3>{credential.title}</h3><p>{credential.issuer}</p>
             <div class="meta-list">{credential.tags?.map((tag) => <span class="pill">{tag}</span>)}</div>
